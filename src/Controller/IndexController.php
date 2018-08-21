@@ -7,12 +7,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
+
     /**
-     * @Route("/")
+     * @Route("/accueil")
      */
     public function index()
     {
         return $this->render('index/index.html.twig');
+    }
+
+    /**
+     * @Route("/")
+     */
+    public function page()
+    {
+        return $this->render('page/page.html.twig');
     }
 
     /**
@@ -22,6 +31,14 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
+    /**
+     * @Route("/decouverte")
+     */
+    public function decouverte()
+    {
+        return $this->render('page/decouverte.html.twig');
+    }
+
 
 
     /**
@@ -34,6 +51,10 @@ class IndexController extends AbstractController
             'id' => $id
         ]);
     }
+
+
 }
+
+
 
 
