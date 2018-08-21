@@ -23,6 +23,19 @@ class IndexController extends AbstractController
         return $this->render('page/recommandation.html.twig');
     }
 
+    /**
+     * @Route("/similar/{id}")
+     */
+    public function similar($id)
+    {
+        return $this->render('page/similar.html.twig',
+        [
+            'id' => $id
+        ]);
+    }
+
+
+
 }
 
 

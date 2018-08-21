@@ -40,11 +40,8 @@
             // interception de l'évènement submit du formulaire
 
             // Déclaration des variables
-            var long = 'long';
-            var court = 'court';
-            var truemeta = '';
-            var trueawards = '';
-            var test = '';
+           var genre = [];
+           var i = 0;
 
             // Ecouteur d'événement click
             $('#valider').click(function (event) {
@@ -62,6 +59,12 @@
 
                     // Vérification du format de la série
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
+
+
+                    var similar = "https://api.themoviedb.org/3/tv/" +  + "/similar?api_key=6f077ac27b8512d9188198b9d2e07cad"
+
+
+
                     // var api = "https://api.themoviedb.org/3/search/movie?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+ values.titre;
                     // https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=shameless
 
@@ -109,9 +112,16 @@
                             {
                                 content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
                             }
+                            if (this.id != '')
+                            {
+                                genre[i] = this.id;
+                                content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
+                                i++;
+                            }
+
 
                         });
-
+                        console.log(genre);
                         $('.ajax').html('').prepend(
                             // Inclure content dans la div
                             content
