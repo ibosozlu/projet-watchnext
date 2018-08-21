@@ -59,18 +59,8 @@
 
                     // Vérification du format de la série
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
-<<<<<<< HEAD
-                    
 
 
-
-                    // var api = "https://api.themoviedb.org/3/search/movie?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+ values.titre;
-                    // https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=shameless
-
-=======
-
-
->>>>>>> master
                     // Récupération des données de l'API
                     var settings = {
                         "async": true,
@@ -89,9 +79,7 @@
                             // Remplir la variable content avant de l'inclure dans la div AJAX
                             var content = '';
 
-<<<<<<< HEAD
-                            if(response.results != '') {
-=======
+
                             if (response.results != '') {
 >>>>>>> master
                                 $(response.results).each(function () {
