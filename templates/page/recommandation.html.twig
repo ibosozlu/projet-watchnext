@@ -2,157 +2,117 @@
 
 {% block body %}
 
-<h1>Requête</h1>
 
-<!-- le tableau HTML ici -->
-<table class="table_cat th_produits table table-striped">
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
+    <h1>Requête</h1>
 
-    </tr>
+    <!-- le tableau HTML ici -->
+    <table class="table_cat th_produits table table-striped">
 
-    <tr>
-        <td>
-            <form id="form" method="get">
-                Titre:<br>
-                <input type="text" name="titre"><br>
-                Date:<br>
-                <input type="text" name="date"><br>
-                Durée:<br>
-                <input type="text" name="duree">
-        <td><button type="submit" name="valider" id="valider" class="btn btn-primary">Voir détail</button></td>
-        </form>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <form id="form" method="get">
+                    Titre:<br>
+                    <input type="text" name="titre"><br>
+                    Date:<br>
+                    <input type="text" name="date"><br>
+                    Durée:<br>
+                    <input type="text" name="duree">
+            <td>
+                <button type="submit" name="valider" id="valider" class="btn btn-primary">Voir détail</button>
+            </td>
+            </form>
+            </td>
+        </tr>
 
-</table>
+
+    </table>
+
+    <div class="ajax">
+
+    </div>
+
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-
-<script>
-
-    $(function () { // DOM ready
-    // interception de l'évènement submit du formulaire
-
-    // Déclaration des variables
-    var long = 'long';
-    var court = 'court';
-    var truemeta = '';
-    var trueawards = '';
-    var test = '';
-
-    // Ecouteur d'événement click
-    $('#valider').click(function (event) {
-    // Empêche la redirection
-    event.preventDefault();
-
-    // Vérification du formulaire
-    if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
-
-    // Récupération des données du formulaire
-    var values = {};
-    $.each($('#form').serializeArray(), function(i, field) {
-    values[field.name] = field.value;
-    });
-
-    // Vérification du format de la série
-    if(values.duree == long) {
-    var api = "http://www.omdbapi.com/?apikey=b903184c&" + "t=" + values.titre + "&y=" + values.date + "&plot=" + "full";
-    }else if(values.duree = court){
-    var api = "http://www.omdbapi.com/?apikey=b903184c&" + "t=" + values.titre + "&y=" + values.date;
-    }
-
-    // Récupération des données de l'API
-    var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": api,
-    "method": "GET",
-    "headers": {},
-    "data": "{}"
-    }
-
-    // Méthode AJAX
-
-    $.ajax(settings).done(function (response) {
-    console.log(response);
-
-    $.get(
-    // fichier appelé
-    '../watch-next/recommandation.php',
-    // données envoyées = données du formulaire
-    $(this).serialize(),
-    // fonction qui traite la réponse de categorie-ajax.php
-    function () {
-
-    // Vérification de la présence d'une note
-    if(response.Metascore != "N/A")
-    {
-    truemeta = ('<div class="alert alert-success">' + ("La note est de " + response.Metascore + "/100 " ) + ' </div>');
-    } else {
-    truemeta= '';
-    }
-
-    // Vérification de la présence d'une récompense
-    if(response.Awards != "N/A")
-    {
-    trueawards = ('<div class="alert alert-success">' + ("Les récompenses : " + response.Awards ) + ' </div>');
-    } else {
-    trueawards= '';
-    }
-
-    // Vérification si la recherche est une série
-    if(response.Type == 'series'){
-    test = 'ok';
-    }else {
-    test = '';
-    }
-
-    // Si la recherche est bien une série afficher les résultats dans la div AJAX
-    if(test == 'ok') {
-    $('.ajax').html('').prepend(
-    '<div class="alert alert-success"> <img src=" ' + (response.Poster) + ' ">   </div>',
-    '<div class="alert alert-success">' + ("Le titre est : " + response.Title) + ' </div>',
-    '<div class="alert alert-success">' + ("L'année de production est : " + response.Year) + ' </div>',
-    '<div class="alert alert-success">' + ("La durée est : " + response.Runtime) + ' </div>',
-    '<div class="alert alert-success">' + ("Les acteurs sont : " + response.Actors) + ' </div>',
-    '<div class="alert alert-success">' + (response.Plot) + ' </div>',
-    '<div class="alert alert-success">' + ("Les genres sont : " + response.Genre) + ' </div>',
-    truemeta,
-    trueawards,
-    );
-    $('#form')[0].reset();
-    } else {
-    // Afficher un message d'erreur avec le nom de la recherche
-    $('.ajax').html('').prepend(
-    '<div class="alert alert-danger"> Il n\'y a pas de résultat pour la série : ' + values.titre+ ' </div>'
-    )
-    }
-
-    }
-
-    );
-    });
-    };
-    });
-
-
-    });
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
+    <script>
+        $(function () { // DOM ready
+            // interception de l'évènement submit du formulaire
+            // Déclaration des variables
+            var long = 'long';
+            var court = 'court';
+            var truemeta = '';
+            var trueawards = '';
+            var test = '';
+            // Ecouteur d'événement click
+            $('#valider').click(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+                // Vérification du formulaire
+                if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
+                    // Récupération des données du formulaire
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+                    // Vérification du format de la série
+                    var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
+                    // var api = "https://api.themoviedb.org/3/search/movie?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+ values.titre;
+                    // https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=shameless
+                    // Récupération des données de l'API
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": api,
+                        "method": "GET",
+                        "headers": {},
+                        "data": "{}"
+                    }
+                    // Méthode AJAX
+                    $.ajax(settings).done(function (response) {
+                            console.log(response);
+                            // Remplir la variable content avant de l'inclure dans la div AJAX
+                            var content = '';
+                            $(response.results).each(function() {
+                                var resultatapi = this;
+                                if (this.poster_path != null) {
+                                    content += '<img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
+                                }
+                                if (((this.name) != 'undefined') || ((this.title) != 'undefined'))
+                                {
+                                    content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
+                                }
+                                if (this.first_air_date != '')
+                                {
+                                    content += '<div class="alert alert-success">' + ("La première diffusion : " + this.first_air_date) + ' </div>';
+                                }
+                                if (this.original_language != '')
+                                {
+                                    content += '<div class="alert alert-success">' + ("Langue : " + this.original_language) + ' </div>';
+                                }
+                                if (this.vote_average != 0)
+                                {
+                                    content += '<div class="alert alert-success">' + ("La note est : " + this.vote_average) + ' </div>';
+                                }
+                                if (this.overview != '')
+                                {
+                                    content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
+                                }
+                            });
+                            $('.ajax').html('').prepend(
+                                // Inclure content dans la div
+                                content
+                            );
+                            $('#form')[0].reset();
+                        }
+                    );
+                    //});
+                }
+                ;
+            })
+            ;
+        })
+        ;
+    </script>
 
 {% endblock %}

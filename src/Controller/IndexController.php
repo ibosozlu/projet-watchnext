@@ -22,4 +22,7 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
+
 }
+
+
