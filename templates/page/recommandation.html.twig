@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    {{ parent() }}
 
     <h1>Requête</h1>
 
@@ -40,8 +40,8 @@
             // interception de l'évènement submit du formulaire
 
             // Déclaration des variables
-           var genre = [];
-           var i = 0;
+            var genre = [];
+            var i = 0;
 
             // Ecouteur d'événement click
             $('#valider').click(function (event) {
@@ -61,13 +61,6 @@
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
 
 
-                    var similar = "https://api.themoviedb.org/3/tv/" +  + "/similar?api_key=6f077ac27b8512d9188198b9d2e07cad"
-
-
-
-                    // var api = "https://api.themoviedb.org/3/search/movie?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+ values.titre;
-                    // https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=shameless
-
                     // Récupération des données de l'API
                     var settings = {
                         "async": true,
@@ -81,60 +74,58 @@
                     // Méthode AJAX
 
                     $.ajax(settings).done(function (response) {
-                        console.log(response);
+                            console.log(response);
 
-                        // Remplir la variable content avant de l'inclure dans la div AJAX
-                        var content = '';
+                            // Remplir la variable content avant de l'inclure dans la div AJAX
+                            var content = '';
 
-                        $(response.results).each(function() {
-                            var resultatapi = this;
+                            if (response.results != '') {
+                                $(response.results).each(function () {
+                                    var resultatapi = this;
 
-                            if (this.poster_path != null) {
-                                content += '<img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
-                            }
-                            if (((this.name) != 'undefined') || ((this.title) != 'undefined'))
-                            {
-                                content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
-                            }
-                            if (this.first_air_date != '')
-                            {
-                                content += '<div class="alert alert-success">' + ("La première diffusion : " + this.first_air_date) + ' </div>';
-                            }
-                            if (this.original_language != '')
-                            {
-                                content += '<div class="alert alert-success">' + ("Langue : " + this.original_language) + ' </div>';
-                            }
-                            if (this.vote_average != 0)
-                            {
-                                content += '<div class="alert alert-success">' + ("La note est : " + this.vote_average) + ' </div>';
-                            }
-                            if (this.overview != '')
-                            {
-                                content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
-                            }
-                            if (this.id != '')
-                            {
-                                genre[i] = this.id;
-                                content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
-                                i++;
-                            }
+                                    if (this.poster_path != null) {
+                                        content += '<br><img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
+                                    }
+                                    if (((this.name) != 'undefined') || ((this.title) != 'undefined')) {
+                                        content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
+                                    }
+                                    if (this.first_air_date != '') {
+                                        content += '<div class="alert alert-success">' + ("La première diffusion : " + this.first_air_date) + ' </div>';
+                                    }
+                                    if (this.original_language != '') {
+                                        content += '<div class="alert alert-success">' + ("Langue : " + this.original_language) + ' </div>';
+                                    }
+                                    if (this.vote_average != 0) {
+                                        content += '<div class="alert alert-success">' + ("La note est : " + this.vote_average) + ' </div>';
+                                    }
+                                    if (this.overview != '') {
+                                        content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
+                                    }
+                                    if (this.id != '') {
+                                        genre[i] = this.id;
+                                        content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
+
+                                        i++;
+                                    }
 
 
-                        });
-                        console.log(genre);
-                        $('.ajax').html('').prepend(
-                            // Inclure content dans la div
-                            content
+                                });
+                            } else {
+                                content = '<div class="alert alert-danger"> Il n\'y a pas de correpondance</div><br>';
+                            }
+                            console.log(genre);
+                            $('.ajax').html('').prepend(
+                                // Inclure content dans la div
+                                content
+                            );
+                            $('#form')[0].reset();
+                        }
+                    );
 
-                        );
-                    $('#form')[0].reset();
                 }
-            );
-            //});
-        }
-        ;
-        })
-        ;
+                ;
+            })
+            ;
 
 
         })
@@ -142,5 +133,6 @@
 
 
     </script>
+
 
 {% endblock %}

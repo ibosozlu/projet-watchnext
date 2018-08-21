@@ -15,7 +15,7 @@
 
             // Vérification du format de la série
 
-            var similar = "https://api.themoviedb.org/3/tv/" + {{ id }} +"/similar?api_key=6f077ac27b8512d9188198b9d2e07cad"
+            var similar = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&first_air_date.gte=2018-01-01&sort_by=popularity.desc"
 
             // Récupération des données de l'API
             var settings = {
@@ -36,13 +36,13 @@
                     // Remplir la variable content avant de l'inclure dans la div AJAX
                     var content = '';
 
-                    if (response.results != '') {
+                    if (response.total_results != 0) {
                         console.log('ici');
                         $(response.results).each(function () {
                             var resultatapi = this;
 
                             if (this.poster_path != null) {
-                                content += '<br><img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
+                                content += '<img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
                             }
                             if (((this.name) != 'undefined') || ((this.title) != 'undefined')) {
                                 content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
@@ -63,9 +63,7 @@
 
                         });
                     } else {
-
-
-                        content = '<br><br><br><div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
+                        content = '<div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
                     }
 
                     $('.ajax').html('').prepend(
