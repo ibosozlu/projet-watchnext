@@ -36,13 +36,13 @@
                     // Remplir la variable content avant de l'inclure dans la div AJAX
                     var content = '';
 
-                    if (response.total_results != 0) {
+                    if (response.results != '') {
                         console.log('ici');
                         $(response.results).each(function () {
                             var resultatapi = this;
 
                             if (this.poster_path != null) {
-                                content += '<img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
+                                content += '<br><img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
                             }
                             if (((this.name) != 'undefined') || ((this.title) != 'undefined')) {
                                 content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
@@ -63,7 +63,9 @@
 
                         });
                     } else {
-                        content = '<div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
+
+
+                        content = '<br><br><br><div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
                     }
 
                     $('.ajax').html('').prepend(
