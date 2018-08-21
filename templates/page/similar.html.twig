@@ -37,8 +37,9 @@
                 // Remplir la variable content avant de l'inclure dans la div AJAX
                 var content = '';
 
-                if(response.id == '')
+                if(response.total_results != 0)
                 {
+                    console.log('ici');
                     $(response.results).each(function () {
                         var resultatapi = this;
 
@@ -63,9 +64,9 @@
 
 
                     });
-                } else
+                }else
                 {
-                    '<div>Erreur</div>';
+                    content = '<div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
                 }
 
                 $('.ajax').html('').prepend(
