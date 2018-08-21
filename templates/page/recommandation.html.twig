@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    {{ parent() }}
 
     <h1>Requête</h1>
 
@@ -59,6 +59,7 @@
 
                     // Vérification du format de la série
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
+<<<<<<< HEAD
                     
 
 
@@ -66,6 +67,10 @@
                     // var api = "https://api.themoviedb.org/3/search/movie?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+ values.titre;
                     // https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=shameless
 
+=======
+
+
+>>>>>>> master
                     // Récupération des données de l'API
                     var settings = {
                         "async": true,
@@ -84,7 +89,11 @@
                             // Remplir la variable content avant de l'inclure dans la div AJAX
                             var content = '';
 
+<<<<<<< HEAD
                             if(response.results != '') {
+=======
+                            if (response.results != '') {
+>>>>>>> master
                                 $(response.results).each(function () {
                                     var resultatapi = this;
 
@@ -109,26 +118,43 @@
                                     if (this.id != '') {
                                         genre[i] = this.id;
                                         content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
                                         i++;
                                     }
 
 
+<<<<<<< HEAD
 
 
                                 });
                             }else{
+=======
+                                });
+                            } else {
+>>>>>>> master
                                 content = '<div class="alert alert-danger"> Il n\'y a pas de correpondance</div><br>';
                             }
                             console.log(genre);
                             $('.ajax').html('').prepend(
                                 // Inclure content dans la div
                                 content
+<<<<<<< HEAD
 
                             );
                             $('#form')[0].reset();
                         }
                     );
 
+=======
+                            );
+                            $('#form')[0].reset();
+                        }
+                    );
+
+>>>>>>> master
                 }
                 ;
             })
@@ -140,5 +166,6 @@
 
 
     </script>
+
 
 {% endblock %}
