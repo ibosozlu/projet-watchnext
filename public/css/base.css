@@ -1,0 +1,41 @@
+nav {
+    position: relative;
+}
+
+.navbar {
+    background-color:  #081c24 !important;
+    height: 80px;
+}
+
+.navbar-brand, .navbar-brand:hover, .navbar-toggler {
+    color: #fecc00;
+}
+
+.nav-link {
+    color: #868e91 !important;
+}
+
+.nav-link:hover {
+    color: #fecc00 !important;
+}
+
+.menu-droite {
+    margin-left: 30em;
+}
+
+#search {
+    height: 4em;
+    width: 60em;
+}
+
+.form-group {
+    margin-top: -0.5em;
+}
+
+footer {
+    background-color: #081c24;
+}
+    
+ul {
+    list-style-type: none;
+}
