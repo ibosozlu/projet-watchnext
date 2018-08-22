@@ -31,6 +31,18 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
+
+    /**
+     * @Route("/recommandation1/{name}")
+     */
+    public function recommandation1($name)
+    {
+        return $this->render('page/recommandation1.html.twig',
+        [
+            'name' => $name
+        ]);
+    }
+
     /**
      * @Route("/decouverte")
      */

@@ -1,0 +1,270 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ ('../../css/recommandation.css') }}">
+
+
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <!-- Premier container -->
+    <section id="pagecontainer">
+        <section id="recherche">
+            <!-- Récupération du résultat du formulaire -->
+            <ul class="list-group">
+                <li class="list-group-item">Titre :</li>
+                <li class="list-group-item">Genre :</li>
+                <li class="list-group-item">Format :</li>
+            </ul>
+
+            <!-- Formulaire pour changer sa recherche -->
+            <form id="form">
+
+                <div class="form-group formulaire" method="get">
+                    <div>Refaire une recherche :</div>
+                    <label for="titre">Titre</label>
+                    <input type="titre" class="form-control" name="titre" aria-describedby="emailHelp"
+                           placeholder="Entrer le nom de votre film">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="genre" class="form-control" id="genre" placeholder="Genre">
+                </div>
+                <button type="submit" class="btn btn-primary valider">Submit</button>
+            </form>
+
+
+        </section>
+        <!-- Résultat de la recherche -->
+        <section id="filmgrille">
+            <div class="container">
+                <div class="white-divider"></div>
+                <div class="heading">
+                    <h2>Séries</h2>
+                </div>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title1"> </h5>
+                            <p class="card-text card1">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title2"></h5>
+                            <p class="card-text card2">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title3"></h5>
+                            <p class="card-text card3" >Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title4"> </h5>
+                            <p class="card-text card4">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title5"></h5>
+                            <p class="card-text card5">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title6"></h5>
+                            <p class="card-text card6">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title7"></h5>
+                            <p class="card-text card7">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title8"></h5>
+                            <p class="card-text card8">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                            <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title9"></h5>
+                            <p class="card-text card9">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+        <script>
+            $(function () { // DOM ready
+
+                // Vérification du format de la série
+
+                var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query={{ name }}";
+
+                // Récupération des données de l'API
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": api,
+                    "method": "GET",
+                    "headers": {},
+                    "data": "{}"
+                }
+
+                // Méthode AJAX
+
+                $.ajax(settings).done(function (response) {
+                        console.log(response);
+
+
+                        // Remplir la variable content avant de l'inclure dans la div AJAX
+                        var content = [];
+                        var image = [];
+                        var title = [];
+                        var i= 1;
+                        var j=1;
+
+
+                        if (response.results != '') {
+                            $(response.results).each(function () {
+                                var resultatapi = this;
+
+                                if (this.poster_path != null) {
+                                    image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
+                                }
+                                else{
+                                    image[i] = 'https://www.freeiconspng.com/uploads/no-image-icon-21.png'
+                                }
+                                if (this.name != '') {
+                                    title[i] = '<div>'+ this.name + '</div>'
+                                }
+                                if (this.vote_average != '') {
+                                    content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
+                                }
+                                if (this.vote_count != '') {
+                                    content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
+                                }
+                                    i++;
+
+                            });
+                        } else {
+
+
+                            content = '<br><br><br><div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
+                        }
+
+                    for (i = 1; i < content.length; i++) {
+                        $('.image'+i).attr("src", image[i]);
+
+                        $('.card'+i).html('').prepend(
+                            content[i]
+                        );
+
+                        $('.title'+i).html('').prepend(
+                            title[i]
+                        )
+                    }
+
+
+
+
+
+                    }
+                );
+            })
+
+
+        </script>
+
+    <script>
+        $(function () { // DOM ready
+            // interception de l'évènement submit du formulaire
+
+            // Déclaration des variables
+            var genre = [];
+            var i = 0;
+
+            // Ecouteur d'événement click
+            $('.valider').click(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+
+                // Vérification du formulaire
+                if ($('#form').find('input[name="titre"]').val() != '' && $('#form').find('input[name="genre"]').val() != '') {
+
+
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+                    console.log(values.filmtitre);
+                    document.location.href = 'http://127.0.0.1:8000/recommandation1/'+ values.titre;
+                }
+
+            })
+        })
+
+    </script>
+
+
+
+
+{% endblock %}
