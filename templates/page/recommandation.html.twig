@@ -38,29 +38,22 @@
     <script>
         $(function () { // DOM ready
             // interception de l'évènement submit du formulaire
-
             // Déclaration des variables
             var genre = [];
             var i = 0;
-
             // Ecouteur d'événement click
             $('#valider').click(function (event) {
                 // Empêche la redirection
                 event.preventDefault();
-
                 // Vérification du formulaire
                 if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
-
                     // Récupération des données du formulaire
                     var values = {};
                     $.each($('#form').serializeArray(), function (i, field) {
                         values[field.name] = field.value;
                     });
-
                     // Vérification du format de la série
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
-
-
                     // Récupération des données de l'API
                     var settings = {
                         "async": true,
@@ -70,21 +63,14 @@
                         "headers": {},
                         "data": "{}"
                     }
-
                     // Méthode AJAX
-
                     $.ajax(settings).done(function (response) {
                             console.log(response);
-
                             // Remplir la variable content avant de l'inclure dans la div AJAX
                             var content = '';
-
-
                             if (response.results != '') {
->>>>>>> master
                                 $(response.results).each(function () {
                                     var resultatapi = this;
-
                                     if (this.poster_path != null) {
                                         content += '<br><img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
                                     }
@@ -106,53 +92,26 @@
                                     if (this.id != '') {
                                         genre[i] = this.id;
                                         content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                                         i++;
                                     }
-
-
-<<<<<<< HEAD
-
-
-                                });
-                            }else{
-=======
                                 });
                             } else {
->>>>>>> master
                                 content = '<div class="alert alert-danger"> Il n\'y a pas de correpondance</div><br>';
                             }
                             console.log(genre);
                             $('.ajax').html('').prepend(
                                 // Inclure content dans la div
                                 content
-<<<<<<< HEAD
-
                             );
                             $('#form')[0].reset();
                         }
                     );
-
-=======
-                            );
-                            $('#form')[0].reset();
-                        }
-                    );
-
->>>>>>> master
                 }
                 ;
             })
             ;
-
-
         })
         ;
-
-
     </script>
 
 
