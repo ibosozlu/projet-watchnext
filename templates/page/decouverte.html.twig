@@ -1,10 +1,146 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ ('../../css/recommandation.css') }}">
+
+
+{% endblock %}
+
 {% block body %}
     {{ parent() }}
-    <div class="ajax">
+    <!-- Premier container -->
 
-    </div>
+
+
+
+    <section id="pagecontainer">
+        <!-- le tableau HTML ici -->
+
+
+
+
+                    <form id="form" method="get">
+
+                        <button type="submit" name="valider" id="valider2" class="btn  button-color">Par note</button>
+                        <button type="submit" name="valider" id="valider" class="btn button-color">Nouveauté</button>
+                        <button type="submit" name="valider" id="valider3" class="btn button-color">Par popularité</button>
+                    </form>
+
+
+
+        </table>
+    </section>
+        <!-- Résultat de la recherche -->
+        <section id="filmgrille">
+            <div class="container">
+                <div class="white-divider"></div>
+                <div class="heading">
+                    <h2>Découverte</h2>
+                </div>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title1"> </h5>
+                            <p class="card-text card1">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title2"></h5>
+                            <p class="card-text card2">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title3"></h5>
+                            <p class="card-text card3" >Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title4"> </h5>
+                            <p class="card-text card4">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title5"></h5>
+                            <p class="card-text card5">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title6"></h5>
+                            <p class="card-text card6">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title7"></h5>
+                            <p class="card-text card7">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title8"></h5>
+                            <p class="card-text card8">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail" href="http://127.0.0.1:8000/recommandation" target="_blank">
+                                <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title9"></h5>
+                            <p class="card-text card9">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
 
 {% endblock %}
 
@@ -15,69 +151,370 @@
 
             // Vérification du format de la série
 
-            var similar = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&first_air_date.gte=2018-01-01&sort_by=popularity.desc"
+            var api = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&vote_average.gte=8";
 
             // Récupération des données de l'API
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": similar,
+                "url": api,
                 "method": "GET",
                 "headers": {},
                 "data": "{}"
             }
-
-            // Méthode AJAX
 
             $.ajax(settings).done(function (response) {
                     console.log(response);
 
 
                     // Remplir la variable content avant de l'inclure dans la div AJAX
-                    var content = '';
+                    var content = [];
+                    var image = [];
+                    var title = [];
+                    var i= 0;
+                    var b = 1;
 
-                    if (response.total_results != 0) {
-                        console.log('ici');
+                    if (response.results != '') {
                         $(response.results).each(function () {
-                            var resultatapi = this;
 
                             if (this.poster_path != null) {
-                                content += '<img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
+                                image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
+                            }else{
+                                image[i] = '';
                             }
-                            if (((this.name) != 'undefined') || ((this.title) != 'undefined')) {
-                                content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
+                            if (this.name != '') {
+                                title[i] = '<div>'+ this.name + '</div>'
                             }
-                            if (this.first_air_date != '') {
-                                content += '<div class="alert alert-success">' + ("La première diffusion : " + this.first_air_date) + ' </div>';
+                            if (this.vote_average != '') {
+                                content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
                             }
-                            if (this.original_language != '') {
-                                content += '<div class="alert alert-success">' + ("Langue : " + this.original_language) + ' </div>';
+                            if (this.vote_count != '') {
+                                content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
                             }
-                            if (this.vote_average != 0) {
-                                content += '<div class="alert alert-success">' + ("La note est : " + this.vote_average) + ' </div>';
-                            }
-                            if (this.overview != '') {
-                                content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
-                            }
-
-
+                            i++;
                         });
-                    } else {
-                        content = '<div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
                     }
+              for (i = 0; i < content.length; i++) {
 
-                    $('.ajax').html('').prepend(
-                        // Inclure content dans la div
-                        content
-                    );
+                        if(image[i] == '') {
+                            b--;
+                        }else{
+                            $('.image' + b).attr("src", image[i]);
 
+                            $('.card' + b).html('').prepend(
+                                content[i]
+                            );
+
+                            $('.title' + b).html('').prepend(
+                                title[i]
+                            );
+
+                        }
+                        b++;
+                    }
                 }
             );
+
+
+
+            var i = 0;
+
+            // Ecouteur d'événement submit
+            $('#valider').click(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+
+                // Vérification du formulaire
+                if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
+
+                    // Récupération des données du formulaire
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+
+                    console.log(values.titre);
+                    var api = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&first_air_date.gte=2018-01-01&sort_by=popularity.desc";
+
+
+
+
+
+                    // Récupération des données de l'API
+                      var settings = {
+                          "async": true,
+                          "crossDomain": true,
+                          "url": api,
+                          "method": "GET",
+                          "headers": {},
+                          "data": "{}"
+                      }
+
+                   // Méthode AJAX
+
+                      $.ajax(settings).done(function (response) {
+                              console.log(response);
+
+                          // Remplir la variable content avant de l'inclure dans la div AJAX
+                          var content = [];
+                          var image = [];
+                          var title = [];
+                          var i= 0;
+                          var b = 1;
+
+                          if (response.results != '') {
+                              $(response.results).each(function () {
+
+                                  if (this.poster_path != null) {
+                                      image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
+                                  }else{
+                                      image[i] = '';
+                                  }
+                                  if (this.name != '') {
+                                      title[i] = '<div>'+ this.name + '</div>'
+                                  }
+                                  if (this.vote_average != '') {
+                                      content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
+                                  }
+                                  if (this.vote_count != '') {
+                                      content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
+                                  }
+                                  i++;
+                              });
+                          }
+                          for (i = 0; i < content.length; i++) {
+
+                              if(image[i] == '') {
+                                  b--;
+                              }else{
+                                  $('.image' + b).attr("src", image[i]);
+
+                                  $('.card' + b).html('').prepend(
+                                      content[i]
+                                  );
+
+                                  $('.title' + b).html('').prepend(
+                                      title[i]
+                                  );
+
+                              }
+                              b++;
+                          }
+                          }
+                      );
+
+
+
+                }
+                ;
+            })
+            ;
+
+            $('#valider2').click(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+
+                // Vérification du formulaire
+                if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
+
+                    // Récupération des données du formulaire
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+
+                    console.log(values.titre);
+                    var api = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&vote_average.gte=8";
+
+
+
+
+
+                    // Récupération des données de l'API
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": api,
+                        "method": "GET",
+                        "headers": {},
+                        "data": "{}"
+                    }
+
+                    // Méthode AJAX
+
+                    $.ajax(settings).done(function (response) {
+                            console.log(response);
+
+                            // Remplir la variable content avant de l'inclure dans la div AJAX
+                            var content = [];
+                            var image = [];
+                            var title = [];
+                            var i= 0;
+                            var b = 1;
+
+                            if (response.results != '') {
+                                $(response.results).each(function () {
+
+                                    if (this.poster_path != null) {
+                                        image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
+                                    }else{
+                                        image[i] = '';
+                                    }
+                                    if (this.name != '') {
+                                        title[i] = '<div>'+ this.name + '</div>'
+                                    }
+                                    if (this.vote_average != '') {
+                                        content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
+                                    }
+                                    if (this.vote_count != '') {
+                                        content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
+                                    }
+                                    i++;
+                                });
+                            }
+                            for (i = 0; i < content.length; i++) {
+
+                                if(image[i] == '') {
+                                    b--;
+                                }else{
+                                    $('.image' + b).attr("src", image[i]);
+
+                                    $('.card' + b).html('').prepend(
+                                        content[i]
+                                    );
+
+                                    $('.title' + b).html('').prepend(
+                                        title[i]
+                                    );
+
+                                }
+                                b++;
+                            }
+                        }
+                    );
+
+
+
+                }
+                ;
+            })
+            ;
+
+            $('#valider3').click(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+
+                // Vérification du formulaire
+                if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
+
+                    // Récupération des données du formulaire
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+
+                    console.log(values.titre);
+                    var api = "http://api.themoviedb.org/3/discover/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&vote_count.gte=10";
+
+
+
+
+
+                    // Récupération des données de l'API
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": api,
+                        "method": "GET",
+                        "headers": {},
+                        "data": "{}"
+                    }
+
+                    // Méthode AJAX
+
+                    $.ajax(settings).done(function (response) {
+                            console.log(response);
+
+                            // Remplir la variable content avant de l'inclure dans la div AJAX
+                            var content = [];
+                            var image = [];
+                            var title = [];
+                            var i= 0;
+                            var b = 1;
+
+                            if (response.results != '') {
+                                $(response.results).each(function () {
+
+                                    if (this.poster_path != null) {
+                                        image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
+                                    }else{
+                                        image[i] = '';
+                                    }
+                                    if (this.name != '') {
+                                        title[i] = '<div>'+ this.name + '</div>'
+                                    }
+                                    if (this.vote_average != '') {
+                                        content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
+                                    }
+                                    if (this.vote_count != '') {
+                                        content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
+                                    }
+                                    i++;
+                                });
+                            }
+                            for (i = 0; i < content.length; i++) {
+
+                                if(image[i] == '') {
+                                    b--;
+                                }else{
+                                    $('.image' + b).attr("src", image[i]);
+
+                                    $('.card' + b).html('').prepend(
+                                        content[i]
+                                    );
+
+                                    $('.title' + b).html('').prepend(
+                                        title[i]
+                                    );
+
+                                }
+                                b++;
+                            }
+                        }
+                    );
+
+
+
+                }
+                ;
+            })
+            ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         })
 
 
+
+
     </script>
-
-
 
 {% endblock %}

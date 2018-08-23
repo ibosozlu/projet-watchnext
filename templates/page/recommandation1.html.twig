@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-
+    {{ parent() }}
     <link rel="stylesheet" href="{{ ('../../css/recommandation.css') }}">
 
 
@@ -11,32 +11,7 @@
     {{ parent() }}
     <!-- Premier container -->
     <section id="pagecontainer">
-        <section id="recherche">
-            <!-- Récupération du résultat du formulaire -->
-            <ul class="list-group">
-                <li class="list-group-item">Titre :</li>
-                <li class="list-group-item">Genre :</li>
-                <li class="list-group-item">Format :</li>
-            </ul>
 
-            <!-- Formulaire pour changer sa recherche -->
-            <form id="form">
-
-                <div class="form-group formulaire" method="get">
-                    <div>Refaire une recherche :</div>
-                    <label for="titre">Titre</label>
-                    <input type="titre" class="form-control" name="titre" aria-describedby="emailHelp"
-                           placeholder="Entrer le nom de votre film">
-                </div>
-                <div class="form-group">
-                    <label for="genre">Genre</label>
-                    <input type="genre" class="form-control" id="genre" placeholder="Genre">
-                </div>
-                <button type="submit" class="btn btn-primary valider">Submit</button>
-            </form>
-
-
-        </section>
         <!-- Résultat de la recherche -->
         <section id="filmgrille">
             <div class="container">
@@ -179,19 +154,19 @@
                         var content = [];
                         var image = [];
                         var title = [];
-                        var i= 1;
-                        var j=1;
+                        var i= 0;
+                        var b=1;
 
 
                         if (response.results != '') {
                             $(response.results).each(function () {
-                                var resultatapi = this;
+
 
                                 if (this.poster_path != null) {
                                     image[i] = 'https://image.tmdb.org/t/p/w300' + this.poster_path;
                                 }
                                 else{
-                                    image[i] = 'https://www.freeiconspng.com/uploads/no-image-icon-21.png'
+                                    image[i] = ''
                                 }
                                 if (this.name != '') {
                                     title[i] = '<div>'+ this.name + '</div>'
@@ -202,6 +177,7 @@
                                 if (this.vote_count != '') {
                                     content[i] += '<div> Nombre de vote : '+ this.vote_count + '</div>'
                                 }
+                                console.log(image[i]);
                                     i++;
 
                             });
@@ -211,16 +187,25 @@
                             content = '<br><br><br><div class="alert alert-danger"> Il n\'y a pas de série similaire ' + '<a href="http://127.0.0.1:8000/recommandation/">Retour aux recommandations</a></div><br>';
                         }
 
-                    for (i = 1; i < content.length; i++) {
-                        $('.image'+i).attr("src", image[i]);
+                    for (i = 0; i < content.length; i++) {
 
-                        $('.card'+i).html('').prepend(
-                            content[i]
-                        );
+                        if(image[i] == '') {
 
-                        $('.title'+i).html('').prepend(
-                            title[i]
-                        )
+                            b--;
+                        }else{
+                            $('.image' + b).attr("src", image[i]);
+
+                            $('.card' + b).html('').prepend(
+                                content[i]
+                            );
+
+                            $('.title' + b).html('').prepend(
+                                title[i]
+                            );
+
+                        }
+                        b++;
+
                     }
 
 
@@ -233,38 +218,5 @@
 
 
         </script>
-
-    <script>
-        $(function () { // DOM ready
-            // interception de l'évènement submit du formulaire
-
-            // Déclaration des variables
-            var genre = [];
-            var i = 0;
-
-            // Ecouteur d'événement click
-            $('.valider').click(function (event) {
-                // Empêche la redirection
-                event.preventDefault();
-
-                // Vérification du formulaire
-                if ($('#form').find('input[name="titre"]').val() != '' && $('#form').find('input[name="genre"]').val() != '') {
-
-
-                    var values = {};
-                    $.each($('#form').serializeArray(), function (i, field) {
-                        values[field.name] = field.value;
-                    });
-                    console.log(values.filmtitre);
-                    document.location.href = 'http://127.0.0.1:8000/recommandation1/'+ values.titre;
-                }
-
-            })
-        })
-
-    </script>
-
-
-
 
 {% endblock %}

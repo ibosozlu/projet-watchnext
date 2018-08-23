@@ -1,19 +1,27 @@
 #pagecontainer {
-    margin-top: 3%;
-    max-width: 1500px;
+    padding-top: 6%;
+    max-width: 1140px;
     max-height: 2000px;
     position: relative;
     display: flex;
-    border: 1px solid;
+
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Barre recherche */
 
-#recherche {
-    width: 25%;
 
+.table_cat{
+    padding-top: 6%;
+}
+
+.button-color{
+    background-color: #081c24 !important;
+    color: #fecc00 !important;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottomg: 1em;
 }
 
 .list-group {
@@ -32,14 +40,14 @@
 
 /* Film affiche */
 #filmgrille {
-    background: lightcyan;
-    width: 75%;
+
+    width: 100%;
 
 
 }
 .card-deck{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #filmgrille .heading h2 {
@@ -55,15 +63,18 @@
     min-width: 280px;
     min-height: 450px;
 }
+
+
 .divimage:hover img{
     transform: scale(1.2);
-
+    transition: transform 0.3s !important;
 }
 
 
 
 .card{
     max-width: 300px;
+    box-shadow: 10px 5px 5px lightslategrey;
 }
 .image1, .image2, .image3, .image4, .image5, .image6, .image7, .image8, .image9{
     width: 100%;
