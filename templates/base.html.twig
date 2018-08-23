@@ -18,32 +18,25 @@
 <body>
 {% block body %}
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+<section class="navigation">
+    <nav class="navbar navbar-expand">
         <div class="container">
             <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
 
-            <div class="collapse navbar-collapse" id="navbarToggler">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <div class="menu-gauche d-flex">
                         <li class="nav-item">
                             <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Découvrir</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Nouveautés</a>
                         </li>
-                    </div>
-                    <div class="menu-droite d-flex">
-                        <li class="nav-item">
+                        <li class="nav-item right-menu">
                             <a class="nav-link" href="http://127.0.0.1:8000/connexion">Connexion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
                         </li>
-                    </div>
-
                 </ul>
             </div>
         </div>
@@ -54,6 +47,7 @@
             <input id="search" class="form-control col-sm" type="text" placeholder="Chercher une série...">
         </form>
     </div>
+</section>    
 
 {% endblock %}
 {% block javascripts %}
@@ -75,18 +69,20 @@
 {% endblock %}
 </body>
 
-<footer class="d-flex">
+{% block footer %}
+<footer class="d-flex fixed-bottom">
         <ul class="d-flex">
             <li class="nav-item">
-                <p> ©2018 Watch Next. Tous droits réservés </p>
+                <p class="copyright"> ©2018 Watch Next. Tous droits réservés </p>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/connexion">A propos</a>
+                <a class="nav-link a-propos" href="http://127.0.0.1:8000/a-propos">A propos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/connexion">Contact</a>
+                <a class="nav-link contact" href="http://127.0.0.1:8000/contact">Contact</a>
             </li>
         </ul>
 </footer>
+{% endblock %}
 
 </html>

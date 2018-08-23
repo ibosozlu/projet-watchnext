@@ -52,7 +52,14 @@ class IndexController extends AbstractController
         ]);
     }
 
-
+    /**
+     * @Route("/home")
+     */
+    public function home()
+    {
+        return $this->render('page/home.html.twig');
+    }
+    
 }
 
 
