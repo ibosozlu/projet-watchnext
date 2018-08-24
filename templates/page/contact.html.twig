@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
- {% block head_css %}
+ {% block stylesheets %}
      {{ parent() }}
-
      <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 
  {% endblock %}
@@ -30,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" type="textarea" id="message" placeholder="Votre message" maxlength="500"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">Vous avez atteint la limite de caractères disponibles.</p></span>
+                        <span class="help-block"><p id="characterLeft" class="help-block "></p></span>
                     </div>
                     <br><br>
                     <button type="button" class="btn button-color">Envoyer</button>
