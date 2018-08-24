@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-
 class IndexController extends AbstractController
 {
-
     /**
      * @Route("/accueil")
      */
@@ -15,7 +11,6 @@ class IndexController extends AbstractController
     {
         return $this->render('index/accueil.html.twig');
     }
-
     /**
      * @Route("/")
      */
@@ -23,7 +18,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/page.html.twig');
     }
-
     /**
      * @Route("/recommandation")
      */
@@ -31,18 +25,16 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
-
     /**
      * @Route("/recommandation1/{name}")
      */
     public function recommandation1($name)
     {
         return $this->render('page/recommandation1.html.twig',
-        [
-            'name' => $name
-        ]);
+            [
+                'name' => $name
+            ]);
     }
-
     /**
      * @Route("/decouverte")
      */
@@ -50,21 +42,16 @@ class IndexController extends AbstractController
     {
         return $this->render('page/decouverte.html.twig');
     }
-
-
-
     /**
      * @Route("/similar/{id}")
      */
     public function similar($id)
     {
         return $this->render('page/similar.html.twig',
-        [
-            'id' => $id
-        ]);
+            [
+                'id' => $id
+            ]);
     }
-
-
     /**
      * @param $id
      * @Route("/show/{id}")
@@ -76,7 +63,6 @@ class IndexController extends AbstractController
                 'id' => $id
             ]);
     }
-
     /**
      * @Route("/contact")
      */
@@ -84,7 +70,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/contact.html.twig');
     }
-
     /**
      * @Route("/apropos")
      */
@@ -92,7 +77,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/apropos.html.twig');
     }
-
     /**
      * @Route("/waitingscreen")
      */
@@ -100,11 +84,4 @@ class IndexController extends AbstractController
     {
         return $this->render('page/waitingscreen.html.twig');
     }
-
-
-
 }
-
-
-
-
