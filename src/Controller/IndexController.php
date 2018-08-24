@@ -52,6 +52,37 @@ class IndexController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/contact")
+     */
+    public function contact()
+    {
+        return $this->render('page/contact.html.twig');
+    }
+
+    /**
+     * @Route("/apropos")
+     */
+    public function apropos()
+    {
+        return $this->render('page/apropos.html.twig');
+    }
+
+    /**
+     * @Route("/waitingscreen")
+     */
+    public function waitingscreen()
+    {
+        return $this->render('page/waitingscreen.html.twig');
+    }
+
+    /**
+     * @Route("/register")
+     */
+    public function register()
+    {
+        return $this->render('security/register.html.twig');
+    }
 
 }
 

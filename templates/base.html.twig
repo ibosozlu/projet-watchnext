@@ -9,39 +9,51 @@
               crossorigin="anonymous">
 
 
+
     {% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    {% endblock %}
 </head>
 <body>
 {% block body %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Recommandation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Découverte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/connexion">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
-                </li>
+<section class="navigation">
+    <nav class="navbar navbar-expand">
+        <div class="container">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
 
-            </ul>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Découvrir</a>
+                    </li>
+                    <li class="nav-item right-menu">
+                        <a class="nav-link" href="http://127.0.0.1:8000/connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
+    <div class="container form-group">
+        <form id="form" method="get">
+            <input id="search" class="form-control col-sm" name="titre" type="text" placeholder="Chercher une série...">
+            <input type="submit" id="submit" value="">
+        </form>
+    </div>
+</section>
 
+
+</body>
 {% endblock %}
+
 {% block javascripts %}
 
 
@@ -57,7 +69,44 @@
             integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
             crossorigin="anonymous"></script>
 
+    <script>
+        $(function () { // DOM ready
+            // interception de l'évènement submit du formulaire
+            // Ecouteur d'événement click
+            $('#form').submit(function (event) {
+                // Empêche la redirection
+                event.preventDefault();
+                // Vérification du formulaire
+                if ($('#form').find('input[name="titre"]').val() != '') {
+                    var values = {};
+                    $.each($('#form').serializeArray(), function (i, field) {
+                        values[field.name] = field.value;
+                    });
+                    document.location.href = 'http://127.0.0.1:8000/recommandation1/'+ values.titre;
+                }
+            })
+        })
+    </script>
+
+
+
 
 {% endblock %}
-</body>
+
+{% block footer %}
+<footer class="d-flex fixed-bottom">
+    <ul class="d-flex">
+        <li class="nav-item">
+            <p class="copyright"> ©2018 Watch Next. Tous droits réservés </p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link apropos" href="http://127.0.0.1:8000/apropos">A propos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link contact" href="http://127.0.0.1:8000/contact">Contact</a>
+        </li>
+    </ul>
+</footer>
+
 </html>
+{% endblock %}

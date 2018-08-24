@@ -2,7 +2,7 @@
 
 {% block body %}
     {{ parent() }}
-    <h1>Inscription</h1>
+    <h3>Inscription</h3>
 
     {{ form_start(form) }}
     {{ form_row(form.lastname) }}
@@ -15,5 +15,38 @@
             Enregistrer
         </button>
     </div>
+
+    <!-- <div class="container">
+        <div class="col-10">
+            <h3>S'INSCRIRE</h3>
+            <form>
+                <div class="form-group">
+                    <label for="email">Votre identifiant (adresse email)</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Merci de saisir votre identifiant">
+                </div>
+
+                <div class="form-group">
+                    <label for="pseudo">Votre pseudo</label>
+                    <input type="pseudo" class="form-control" id="pseudo" placeholder="Merci de saisir votre identifiant">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" placeholder="Merci de saisir votre mot de passe">
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirmation">Confirmation du mot de passe</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Merci de confirmer votre mot de passe">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Valider</button>
+
+            </form>
+        </div>
+    </div>
+-->
+
+
     {{ form_end(form) }}
 {% endblock %}
