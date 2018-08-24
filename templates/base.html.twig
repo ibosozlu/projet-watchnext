@@ -12,48 +12,50 @@
 
     {% endblock %}
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ ('../css/base.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     {% endblock %}
 </head>
-
 <body>
 {% block body %}
 
-    <section class="navigation">
-        <nav class="navbar navbar-expand">
-            <div class="container">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
+<section class="navigation">
+    <nav class="navbar navbar-expand">
+        <div class="container">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
 
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Nouveauté</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Découverte</a>
-                        </li>
-                        <li class="nav-item right-menu">
-                            <a class="nav-link" href="http://127.0.0.1:8000/connexion">Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Découvrir</a>
+                    </li>
+                    <li class="nav-item right-menu">
+                        <a class="nav-link" href="http://127.0.0.1:8000/connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-
-        <div class="container form-group">
-            <form id="form" method="get">
-                <input id="search" class="form-control col-sm" name="titre" type="text" placeholder="Chercher une série...">
-                <input type="submit" id="submit" value="">
-            </form>
         </div>
-    </section>
+    </nav>
 
+    <div class="container form-group">
+        <form id="form" method="get">
+            <input id="search" class="form-control col-sm" name="titre" type="text" placeholder="Chercher une série...">
+            <input type="submit" id="submit" value="">
+        </form>
+    </div>
+</section>
+
+
+</body>
 {% endblock %}
+
 {% block javascripts %}
+
 
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -98,20 +100,21 @@
 
 
 {% endblock %}
-</body>
 
-<footer class="d-flex">
-        <ul class="d-flex">
-            <li class="nav-item">
-                <p> ©2018 Watch Next. Tous droits réservés </p>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/connexion">A propos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/connexion">Contact</a>
-            </li>
-        </ul>
+{% block footer %}
+<footer class="d-flex fixed-bottom">
+    <ul class="d-flex">
+        <li class="nav-item">
+            <p class="copyright"> ©2018 Watch Next. Tous droits réservés </p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link apropos" href="http://127.0.0.1:8000/apropos">A propos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link contact" href="http://127.0.0.1:8000/contact">Contact</a>
+        </li>
+    </ul>
 </footer>
 
 </html>
+{% endblock %}
