@@ -52,7 +52,17 @@ class IndexController extends AbstractController
         ]);
     }
 
-
+    /**
+     * @param $id
+     * @Route("/show/{id}")
+     */
+    public function show($id)
+    {
+        return $this->render('page/show.html.twig',
+            [
+                'id' => $id
+            ]);
+    }
 }
 
 
