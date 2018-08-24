@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <head>
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+
+    </head>
+
+    <body>
+
+    <div class="main" style="padding-top: 128px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 ">
+                    <div class="poster"> <!-- -->
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="titre"></div>
+                    <div class="showRunner"></div>
+                    <div class="description"></div>
+                    <div id="note">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container" style="margin-top: 30px;"> <!-- Div contenant le titre casting-->
+                <h3><b>Casting</b></h3>
+            </div>
+
+            <div class="container casting">
+                <div class="row">
+
+                    <div class="col">
+                        <div class="photo1"></div>
+                        <div id="acteur1"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="photo2"></div>
+                        <div id="acteur2"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="photo3"></div>
+                        <div id="acteur3"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="photo4"></div>
+                        <div id="acteur4"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="photo5"></div>
+                        <div id="acteur5"></div>
+                    </div>
+
+                </div> <!-- fin de la row comprenant les acteurs -->
+
+            </div> <!-- fin de la row casting -->
+
+
+            <div class="container" style="margin-top: 30px;">
+                <div class="suggestions row">
+                    <h4><b>Les séries que vous pourriez aimer</b></h4>
+                </div>
+                <div class="row" style="margin-top: 30px;">
+
+                    <div class="col-4 recommandation1">
+                        <div class="recommandationPoster1"></div>
+                        <div class="recommandationTexte1"></div>
+                    </div>
+
+                    <div class="col-4 recommandation2">
+                        <div class="recommandationPoster2"></div>
+                        <div class="recommandationTexte2"></div>
+                    </div>
+
+                    <div class="col-4 recommandation3">
+                        <div class="recommandationPoster3"></div>
+                        <div class="recommandationTexte3"></div>
+                    </div>
+
+                </div>
+
+
+            </div> <!-- fin de la row suggestions -->
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var id = '{{ id }}';
+    </script>
+
+    <script src="{{asset('js/show.js')}}"></script>
+
+
+
+{% endblock %}

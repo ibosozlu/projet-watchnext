@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+ {% block head_css %}
+     {{ parent() }}
+
+     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+
+ {% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+    <div class="container">
+        <div class="col-10">
+            <div class="form-area contenu">
+                <form role="form">
+                    <br>
+                    <h3>NOUS CONTACTER</h3>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" type="textarea" id="message" placeholder="Votre message" maxlength="500"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">Vous avez atteint la limite de caractères disponibles.</p></span>
+                    </div>
+                    <br><br>
+                    <button type="button" class="btn button-color">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

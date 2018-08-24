@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+ {% block head_css %}
+     {{ parent() }}
+     <link rel="stylesheet" href="{{ asset('css/apropos.css') }}">
+
+ {% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="content contenu">
+        <h3>A PROPOS</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac nunc at ipsum varius volutpat. Aenean sagittis metus justo, in dictum ante consectetur eget. Cras vehicula neque ut ligula dapibus aliquet. Duis tincidunt nisl vel dapibus iaculis. Nulla eleifend lectus eget ornare auctor. Fusce pretium, nisi vel euismod auctor, sapien eros porta nisi, non viverra magna mi a nibh. Cras consectetur enim ut hendrerit eleifend. Fusce leo lacus, posuere ultrices risus bibendum, rutrum ullamcorper libero. Nullam consectetur aliquam pretium. Nam vel aliquam eros, vel vehicula elit. Nullam a tortor finibus risus vestibulum finibus id vitae metus. Phasellus a fringilla lorem. Pellentesque auctor aliquam pulvinar.
+
+            <br><br>
+            Maecenas nec lacus vitae purus efficitur eleifend eu in augue. Phasellus risus metus, volutpat eget ipsum sit amet, cursus lobortis massa. Curabitur tincidunt, purus nec volutpat varius, massa nulla dictum purus, sit amet porta urna eros tincidunt leo. Quisque ut blandit ex. In vel tristique tellus, et sagittis sem. Duis vulputate urna a cursus cursus. Sed metus magna, viverra blandit sem id, malesuada eleifend dui. Sed dignissim neque in lacus gravida maximus. Aliquam porttitor lacus sit amet est dapibus convallis. Suspendisse sed auctor arcu. Suspendisse fringilla id arcu vel ullamcorper.
+
+            <br><br>
+            Cras fringilla eleifend dolor, sit amet lobortis ipsum. In hac habitasse platea dictumst. Ut rutrum quam quis hendrerit consequat. Fusce aliquam justo eu diam pulvinar pretium. Phasellus euismod feugiat justo, ut convallis sem feugiat quis. Nullam commodo dictum justo. Nam elementum, erat eget pretium faucibus, nibh est volutpat metus, vitae fringilla nisi leo vel neque. Quisque porta ipsum a ipsum pretium, eget pharetra eros eleifend. In tincidunt arcu ac purus vehicula, non faucibus mauris porta. Donec tempus enim a est tempus efficitur. Morbi sollicitudin massa eu urna sollicitudin, sed pharetra lectus feugiat. Proin dui velit, cursus ac laoreet in, sagittis quis magna. Cras metus tellus, placerat finibus lectus vel, congue condimentum mauris.</p>
+    </div>
+
+{% endblock %}

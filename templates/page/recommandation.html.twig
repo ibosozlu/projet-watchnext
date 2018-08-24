@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ parent() }}
+
 
     <h1>Requête</h1>
 
@@ -52,6 +52,7 @@
                     $.each($('#form').serializeArray(), function (i, field) {
                         values[field.name] = field.value;
                     });
+                    console.log(values.titre);
                     // Vérification du format de la série
                     var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
                     // Récupération des données de l'API

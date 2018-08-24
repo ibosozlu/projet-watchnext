@@ -10,39 +10,20 @@
 {% block body %}
     {{ parent() }}
     <!-- Premier container -->
-
-
-
-
     <section id="pagecontainer">
-        <!-- le tableau HTML ici -->
 
-
-
-
-                    <form id="form" method="get">
-
-                        <button type="submit" name="valider" id="valider2" class="btn  button-color btn-primary:active">Par note</button>
-                        <button type="submit" name="valider" id="valider" class="btn button-color btn-primary:active">Nouveauté</button>
-                        <button type="submit" name="valider" id="valider3" class="btn button-color btn-primary:active">Par popularité</button>
-                    </form>
-
-
-
-        </table>
-    </section>
         <!-- Résultat de la recherche -->
         <section id="filmgrille">
             <div class="container">
                 <div class="white-divider"></div>
                 <div class="heading">
-                    <h2>Découverte</h2>
+                    <h2>Séries</h2>
                 </div>
                 <div class="card-deck">
                     <div class="card">
                         <div class="divimage">
-                            <a class="thumbnail lien1" id="test"href="">
-                                <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <a class="thumbnail lien1" href="">
+                            <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title1"> </h5>
@@ -52,7 +33,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien2" href="">
-                                <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title2"></h5>
@@ -62,7 +43,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien3" href="">
-                                <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title3"></h5>
@@ -75,7 +56,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien4" href="">
-                                <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title4"> </h5>
@@ -85,7 +66,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien5" href="">
-                                <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title5"></h5>
@@ -95,7 +76,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien6" href="">
-                                <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title6"></h5>
@@ -108,7 +89,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien7" href="">
-                                <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title7"></h5>
@@ -118,7 +99,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien8" href="">
-                                <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title8"></h5>
@@ -128,7 +109,7 @@
                     <div class="card">
                         <div class="divimage">
                             <a class="thumbnail lien9" href="">
-                                <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                            <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title9"></h5>
@@ -145,7 +126,13 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script src="{{asset('js/decouverte.js')}}"></script>
+        {{ parent() }}
+    <script>
+        var name = '{{ name }}';
+    </script>
+
+    <script src="{{asset('js/recommandation.js')}}"></script>
+
+
 
 {% endblock %}

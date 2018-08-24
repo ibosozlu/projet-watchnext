@@ -1,0 +1,32 @@
+ h3 {
+    color: #fecc00;
+    text-shadow: 1px 1px #081c24;
+}
+
+.home-haut {
+    padding-top: 7em;
+}
+
+.home-bas {
+    margin-bottom: 3em;
+}
+
+.populaire{
+    border: 1px solid darkgrey;
+    border-radius: 0.8%;
+    padding: 3em;
+    margin: 2em 25em;
+    box-shadow: 2px 2px 15px darkgray;
+}
+
+.populaire2{
+    border: 1px solid darkgrey;
+    border-radius: 0.8%;
+    padding: 3em;
+    margin: 2em 25em;
+    box-shadow: 2px 2px 15px darkgray;
+}
+
+.enregistre {
+    margin-bottom: 5em;
+} 
