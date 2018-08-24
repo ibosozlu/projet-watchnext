@@ -1,0 +1,7 @@
+.contenu{
+    border: 1px solid black;
+    max-width: 1120px;
+    padding: 5% 5%;
+    margin: 6% auto;
+    box-shadow: 5px 10px 18px grey;
+}

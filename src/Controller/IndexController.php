@@ -13,7 +13,7 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        return $this->render('index/index.html.twig');
+        return $this->render('index/accueil.html.twig');
     }
 
     /**
@@ -31,6 +31,18 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
+
+    /**
+     * @Route("/recommandation1/{name}")
+     */
+    public function recommandation1($name)
+    {
+        return $this->render('page/recommandation1.html.twig',
+        [
+            'name' => $name
+        ]);
+    }
+
     /**
      * @Route("/decouverte")
      */
@@ -51,6 +63,44 @@ class IndexController extends AbstractController
             'id' => $id
         ]);
     }
+
+
+    /**
+     * @param $id
+     * @Route("/show/{id}")
+     */
+    public function show($id)
+    {
+        return $this->render('page/show.html.twig',
+            [
+                'id' => $id
+            ]);
+    }
+
+    /**
+     * @Route("/contact")
+     */
+    public function contact()
+    {
+        return $this->render('page/contact.html.twig');
+    }
+
+    /**
+     * @Route("/apropos")
+     */
+    public function apropos()
+    {
+        return $this->render('page/apropos.html.twig');
+    }
+
+    /**
+     * @Route("/waitingscreen")
+     */
+    public function waitingscreen()
+    {
+        return $this->render('page/waitingscreen.html.twig');
+    }
+
 
 
 }
