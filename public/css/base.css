@@ -53,6 +53,10 @@ footer {
     background-color: #081c24;
     height: 3em !important;
     margin-top: 1em;
+<<<<<<< HEAD
+=======
+    bottom: 0;
+>>>>>>> branche-robin
 }
 
 .copyright {
@@ -78,6 +82,10 @@ footer {
     .copyright {
         margin-left: 0;
     }
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> branche-robin

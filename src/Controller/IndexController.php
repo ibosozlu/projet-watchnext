@@ -64,7 +64,10 @@ class IndexController extends AbstractController
         ]);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branche-robin
     /**
      * @param $id
      * @Route("/show/{id}")
@@ -76,6 +79,7 @@ class IndexController extends AbstractController
                 'id' => $id
             ]);
     }
+<<<<<<< HEAD
 
     /**
      * @Route("/contact")
@@ -103,6 +107,8 @@ class IndexController extends AbstractController
 
 
 
+=======
+>>>>>>> branche-robin
 }
 
 
