@@ -65,6 +65,44 @@ class IndexController extends AbstractController
     }
 
 
+    /**
+     * @param $id
+     * @Route("/show/{id}")
+     */
+    public function show($id)
+    {
+        return $this->render('page/show.html.twig',
+            [
+                'id' => $id
+            ]);
+    }
+
+    /**
+     * @Route("/contact")
+     */
+    public function contact()
+    {
+        return $this->render('page/contact.html.twig');
+    }
+
+    /**
+     * @Route("/apropos")
+     */
+    public function apropos()
+    {
+        return $this->render('page/apropos.html.twig');
+    }
+
+    /**
+     * @Route("/waitingscreen")
+     */
+    public function waitingscreen()
+    {
+        return $this->render('page/waitingscreen.html.twig');
+    }
+
+
+
 }
 
 
