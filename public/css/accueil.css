@@ -1,6 +1,6 @@
  h3 {
-    color: #fecc00;
-    text-shadow: 1px 1px #081c24;
+    color: #081c24;
+    text-shadow: 1px 1px #fecc00;
 }
 
 .home-haut {
@@ -19,7 +19,7 @@
     box-shadow: 2px 2px 15px darkgray;
 }
 
-.populaire2{
+.liked{
     border: 1px solid darkgrey;
     border-radius: 0.8%;
     padding: 3em;
@@ -30,3 +30,8 @@
 .enregistre {
     margin-bottom: 5em;
 } 
+
+.divimage:hover {
+    transform: scale(1.15);
+    transition: transform 0.3s !important;
+}
