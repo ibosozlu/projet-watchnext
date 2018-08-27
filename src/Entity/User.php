@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -60,6 +62,50 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $plainPassword;
+
+    /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="user")
+     */
+    private $series;
+
+    /**
+     * user constructor.
+     * @param Collection $series
+     */
+    public function __construct()
+    {
+        $this->series = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
+
+    /**
+     * @param Collection $series
+     * @return User
+     */
+    public function setSeries(Collection $series): User
+    {
+        $this->series = $series;
+        return $this;
+    }
+
+    public function containsSerie($id){
+       foreach ($this->series as $series)
+        {
+           if ($series->getIdApi() == $id) {
+               return true;
+           }
+        }
+
+        return false;
+    }
 
 
 

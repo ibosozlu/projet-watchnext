@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
+use App\Entity\Series;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
@@ -9,8 +11,17 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+        $test[] = $this->getDoctrine()->getRepository('App:Series')->findBy([], ['id_api' => 'DESC']);
+
+        dump($test[0][0]);
+
+
+
         return $this->render('index/accueil.html.twig');
     }
+
+
+
     /**
      * @Route("/")
      */
@@ -58,11 +69,56 @@ class IndexController extends AbstractController
      */
     public function show($id)
     {
+        dump($this->getUser()->containsSerie($id));
+
+            if(!empty($_POST))
+            {
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $series = new Series();
+                    $series->setIdApi($id);
+                    $series->setUser($this->getUser());
+
+                    $entityManager->persist($series);
+                    $entityManager->flush();
+                    return $this->redirectToRoute('app_index_show', ['id' => $id]);
+            }
+
+
         return $this->render('page/show.html.twig',
             [
                 'id' => $id
             ]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/contact")
      */

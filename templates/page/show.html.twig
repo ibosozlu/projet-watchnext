@@ -23,11 +23,27 @@
 
                 <div class="titre"></div>
                 <div class="showRunner"></div>
-                <div class="row justify-content-center coucou">
+                <div class="row justify-content-center">
                     <div id="note"></div>
                     <div class="genre"></div>
                 </div>
+                {% if app.user is null %}
+                    <p> Se connecter pour ajouter cette page aux favoris</p>
+                   {% elseif app.user.containsSerie(id) == true %}
+                       <form method="POST">
+                           <input type="hidden" name="id" value="{{ id }}">
+                           <button type="" class="button-color1" name="Ajouter" disabled><b>Déjà ajoutée</b></button>
+                       </form>
+                        {% else %}
+                            <form method="POST">
+                                 <input type="hidden" name="id" value="{{ id }}">
+                                 <button type="submit" class="button-color" name="Ajouter"><b>Ajouter cette série à ma liste</b></button>
+                            </form>
+
+                {% endif %}
+
                 <div class="description"></div>
+
 
             </div>
         </div>
@@ -226,6 +242,23 @@
                     );
                 }
             );
+            var a = '';
+/*
+            $('#Ajouter').click(function (event) {
+                event.preventDefault();
+                console.log(Ajouter);
+
+            })
+*/
+
+
+
+
+
+
+
+
+
             // Méthode AJAX pour la requête du casting
             $.ajax(settingscast).done(function (response1) {
                 console.log(response1);

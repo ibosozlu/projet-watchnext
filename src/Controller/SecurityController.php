@@ -14,6 +14,7 @@ class SecurityController extends AbstractController
 {
     /**
      * @Route("/inscription")
+     *
      */
     public function register(
         Request $request,
@@ -63,6 +64,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/connexion")
+     *
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {

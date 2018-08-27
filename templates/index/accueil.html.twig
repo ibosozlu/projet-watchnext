@@ -9,7 +9,7 @@
 {% block body %}
     {{ parent() }}
 
-    <section class="home">
+    <section class="home-haut">
         <div class="populaire">
             <h3>Séries populaires</h3>
             <br>
@@ -22,12 +22,76 @@
                 <div class="card-deck">
                     <div class="card">
                         <div class="divimage">
-                            <a class="thumbnail lien" id="test"href="">
-                                <img class="card-img-top image" src="" alt="Card image cap"></a>
+                            <a class="thumbnail lien1" id="test"href="">
+                                <img class="card-img-top image1" src="" alt="Card image cap"></a>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title title"> </h5>
-                            <p class="card-text card"></p>
+                            <h5 class="card-title title1"> </h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien2" href="">
+                                <img class="card-img-top image2" src="" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title2"></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien3" href="">
+                                <img class="card-img-top image3" src="" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title3"></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien4" href="">
+                                <img class="card-img-top image4" src="" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title4"> </h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien5" href="">
+                                <img class="card-img-top image5" src="" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title5"></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="home-bas">
+
+        <div class="liked">
+            <h3>Séries que vous avez aimées</h3>
+            <br>
+
+
+            <div class="populaire-row-haut">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien1" id="test"href="">
+                                <img class="card-img-top image1" src="" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title1"> </h5>
+                            <p class="card-text card1"></p>
                         </div>
                     </div>
                     <div class="card">
@@ -74,113 +138,6 @@
 
 
             </div>
-            <!-- <div class="card-deck">
-                 <div class="card">
-                     <img class="card-img-top image" src="" alt="Card image cap">
-                     <div class="card-body">
-                         <h5 class="card-title title"></h5>
-                         <p class="card-text content"></p>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <img class="card-img-top image2" src="" alt="Card image cap">
-                     <div class="card-body">
-                         <h5 class="card-title title2"></h5>
-                         <p class="card-text content2"></p>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <img class="card-img-top image3" src="" alt="Card image cap">
-                     <div class="card-body">
-                         <h5 class="card-title title3"></h5>
-                         <p class="card-text content3"></p>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <img class="card-img-top image4" src="" alt="Card image cap">
-                     <div class="card-body">
-                         <h5 class="card-title title4"></h5>
-                         <p class="card-text content4"></p>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <img class="card-img-top image5" src="" alt="Card image cap">
-                     <div class="card-body">
-                         <h5 class="card-title title5"></h5>
-                         <p class="card-text content5"></p>
-                     </div>
-                 </div>
-             </div>
-
-         </div>
-         -->
-
-
-            {# <div class="envies">
-                <h3>Aujourd'hui j'ai envie d'une série</h3>
-                <br>
-
-                <form id="envies">
-
-                    <select class="custom-select" multiple>
-                        <option selected>Open response.results select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-
-
-
-                </form>
-            </div> #}
-
-            {#  <div class="enregistre">
-                  <h3> Vos dernières séries enregistrées</h3>
-                  <br>
-
-                  <div class="populaire-row-bas">
-
-                      <div class="card-deck">
-                          <div class="card">
-                              <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-                              <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text"></p>
-                                  >
-                              </div>
-                          </div>
-                          <div class="card">
-                              <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-                              <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                              </div>
-                          </div>
-                          <div class="card">
-                              <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-                              <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                              </div>
-                          </div>
-                          <div class="card">
-                              <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-                              <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                              </div>
-                          </div>
-                          <div class="card">
-                              <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-                              <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                              </div>
-                          </div>
-                      </div>
-
-                  </div>
-              </div> #}
     </section>
 
 {% endblock %}
@@ -193,14 +150,14 @@
 
             // Vérification du format de la série
 
-            var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=game-of-thrones";
+            var api1 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=game-of-thrones";
 
 
             // Récupération des données de l'API
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": api,
+                "url": api1,
                 "method": "GET",
                 "headers": {},
                 "data": "{}"
@@ -213,48 +170,48 @@
 
 
                 // Remplir la variable content avant de l'inclure dans la div AJAX
-                var content = '';
-                var image = '';
-                var title = '';
-                var id= '';
-                var card='';
+                var content1 = '';
+                var image1 = '';
+                var title1 = '';
+                var id1= '';
+                var card1='';
 
 
 
 
                 if (response.results[0].poster_path != null) {
-                    image = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
+                    image1 = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
                 }
                 else{
-                    image = ''
+                    image1 = ''
                 }
                 if (response.results[0].name != '') {
-                    title = '<div>'+ response.results[0].name + '</div>'
+                    title1 = '<div>'+ response.results[0].name + '</div>'
                 }
                 if (response.results[0].overview != '') {
-                    content = '<div>'+ response.results[0].overview + '</div>'
+                    content1 = '<div>'+ response.results[0].overview + '</div>'
                 }
                 if (response.results[0].id != '') {
-                    id = response.results[0].id
+                    id1 = response.results[0].id
 
                 }
 
 
-                console.log(image);
-                console.log(content);
-                console.log(title);
-                console.log(id);
-                $('.image').attr("src", image);
+                console.log(image1);
+                console.log(content1);
+                console.log(title1);
+                console.log(id1);
+                $('.image1').attr("src", image1);
 
-                $('.lien').attr("href", "http://127.0.0.1:8000/show/"+id );
+                $('.lien1').attr("href", "http://127.0.0.1:8000/show/"+id1 );
 
 
-                $('.card').html('').prepend(
-                    content
+                $('.card1').html('').prepend(
+                    content1
                 );
 
-                $('.title').html('').prepend(
-                    title
+                $('.title1').html('').prepend(
+                    title1
                 );
 
             });

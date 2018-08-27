@@ -80,3 +80,26 @@ footer {
         margin-left: 0;
     }
 }
+
+.button-color, .button-color1{
+    background-color: #081c24 !important;
+    color: #fecc00 !important;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: 4px 2px 5px #fecc00;
+}
+
+
+.button-color:hover {
+    background: rgba(0,0,0,0);
+    color: #3a7999;
+    box-shadow: inset 0 0 0 3px #fecc00;
+}
+
+.userconnected{
+    color: #fecc00 !important;
+}
+.namecolor{
+    color: #fecc00 !important;
+}

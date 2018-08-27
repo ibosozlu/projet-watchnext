@@ -2,7 +2,7 @@ $(function () { // DOM ready
 
     // Vérification du format de la série
 
-    var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + name;
+    var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query="+name;
 
     // Récupération des données de l'API
     var settings = {
@@ -83,11 +83,6 @@ $(function () { // DOM ready
                 b++;
 
             }
-
-
-
-
-
         }
     );
 })
