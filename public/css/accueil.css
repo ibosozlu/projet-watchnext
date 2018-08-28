@@ -1,35 +1,29 @@
- h3 {
+h3 {
     color: #081c24;
     text-shadow: 1px 1px #fecc00;
 }
 
+
+
 .home-haut {
-    padding-top: 7em;
+    margin-top: 10em;
 }
 
 .home-bas {
+    margin-top: 3em;
     margin-bottom: 3em;
 }
 
-.populaire{
+.home-haut, .home-bas {
     border: 1px solid darkgrey;
     border-radius: 0.8%;
-    padding: 3em;
-    margin: 2em 25em;
     box-shadow: 2px 2px 15px darkgray;
-}
-
-.liked{
-    border: 1px solid darkgrey;
-    border-radius: 0.8%;
     padding: 3em;
-    margin: 2em 25em;
-    box-shadow: 2px 2px 15px darkgray;
 }
 
 .enregistre {
     margin-bottom: 5em;
-} 
+}
 
 .divimage:hover {
     transform: scale(1.15);

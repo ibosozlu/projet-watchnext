@@ -1,7 +1,8 @@
 <?php
-
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -12,8 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"email"}, message="Il existe déjà un utilisateur avec cet email")
  */
 class User implements UserInterface, \Serializable
-
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -61,7 +62,48 @@ class User implements UserInterface, \Serializable
      */
     private $plainPassword;
 
+    /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="user")
+     */
+    private $series;
 
+    /**
+     * user constructor.
+     * @param Collection $series
+     */
+    public function __construct()
+    {
+        $this->series = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
+
+    /**
+     * @param Collection $series
+     * @return User
+     */
+    public function setSeries(Collection $series): User
+    {
+        $this->series = $series;
+        return $this;
+    }
+
+    public function containsSerie($id){
+       foreach ($this->series as $series)
+        {
+           if ($series->getIdApi() == $id) {
+               return true;
+           }
+        }
+        return false;
+    }
 
     public function getId(): ?int
     {
@@ -76,7 +118,6 @@ class User implements UserInterface, \Serializable
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
         return $this;
     }
 
@@ -88,7 +129,6 @@ class User implements UserInterface, \Serializable
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
-
         return $this;
     }
 
@@ -100,10 +140,9 @@ class User implements UserInterface, \Serializable
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
         return $this;
     }
-
+    
     public function getEmail(): ?string
     {
         return $this->email;
@@ -112,7 +151,6 @@ class User implements UserInterface, \Serializable
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -124,7 +162,6 @@ class User implements UserInterface, \Serializable
     public function setRole(string $role): self
     {
         $this->role = $role;
-
         return $this;
     }
 
@@ -201,13 +238,10 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials()
     {
-
     }
-
+    
     public function __toString()
     {
         return $this->firstname . ' ' . $this->lastname;
     }
-
-
 }

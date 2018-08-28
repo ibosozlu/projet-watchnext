@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\User;
@@ -12,37 +11,32 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+
     /**
      * @Route("/inscription")
+     *
      */
     public function register(
         Request $request,
-        UserPasswordEncoderInterface $passwordEncoder
-    ) {
+        UserPasswordEncoderInterface $passwordEncoder    ) {
 
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 /*
                  * encode le mot de passe à partir de la config encoders
                  * pour l'objet User à partir de son mot de passe en clair reçu du formulaire
                  */
-
                 $password = $passwordEncoder->encodePassword(
                     $user,
                     $user->getPlainPassword()
                 );
-
                 $user->setPassword($password);
-
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
-
                 $this->addFlash('success', 'Votre compte est créé');
                 return $this->redirectToRoute('app_index_index');
             } else {
@@ -52,7 +46,6 @@ class SecurityController extends AbstractController
                 );
             }
         }
-
         return $this->render(
             'security/register.html.twig',
             [
@@ -60,22 +53,20 @@ class SecurityController extends AbstractController
             ]
         );
     }
-
+    
     /**
      * @Route("/connexion")
+     *
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         // traitement du formulaire par Security
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-
         dump($error);
-
         if (!empty($error)) {
             $this->addFlash('error', 'Identifiants incorrects');
         }
-
         return $this->render(
             'security/login.html.twig',
             [

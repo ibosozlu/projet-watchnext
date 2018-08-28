@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -9,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Series
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -17,9 +17,33 @@ class Series
     private $id;
 
     /**
-     * @ORM\Column(type="integer", unique=true)
+     * @ORM\Column(type="integer")
      */
     private $id_api;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="series")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user_id
+     * @return Series
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -34,7 +58,6 @@ class Series
     public function setIdApi(int $id_api): self
     {
         $this->id_api = $id_api;
-
         return $this;
     }
 }

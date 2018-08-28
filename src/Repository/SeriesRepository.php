@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Repository;
-
 use App\Entity\Series;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -14,11 +13,12 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class SeriesRepository extends ServiceEntityRepository
 {
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Series::class);
     }
-
+    
 //    /**
 //     * @return Series[] Returns an array of Series objects
 //     */
@@ -35,7 +35,6 @@ class SeriesRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Series
     {

@@ -1,21 +1,20 @@
 <?php
-
 namespace App\Controller;
-
+use App\Entity\Series;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 class IndexController extends AbstractController
 {
-
     /**
      * @Route("/accueil")
      */
     public function index()
     {
+        $test[] = $this->getDoctrine()->getRepository('App:Series')->findBy([], ['id_api' => 'DESC']);
+        /*dump($test[0][0]);*/
         return $this->render('index/accueil.html.twig');
     }
-
     /**
      * @Route("/")
      */
@@ -23,7 +22,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/page.html.twig');
     }
-
     /**
      * @Route("/recommandation")
      */
@@ -31,18 +29,16 @@ class IndexController extends AbstractController
     {
         return $this->render('page/recommandation.html.twig');
     }
-
     /**
      * @Route("/recommandation1/{name}")
      */
     public function recommandation1($name)
     {
         return $this->render('page/recommandation1.html.twig',
-        [
-            'name' => $name
-        ]);
+            [
+                'name' => $name
+            ]);
     }
-
     /**
      * @Route("/decouverte")
      */
@@ -50,32 +46,38 @@ class IndexController extends AbstractController
     {
         return $this->render('page/decouverte.html.twig');
     }
-
-
-
     /**
      * @Route("/similar/{id}")
      */
     public function similar($id)
     {
         return $this->render('page/similar.html.twig',
-        [
-            'id' => $id
-        ]);
+            [
+                'id' => $id
+            ]);
     }
-
-     /**
+    /**
      * @param $id
      * @Route("/show/{id}")
      */
     public function show($id)
     {
+        /*dump($this->getUser()->containsSerie($id));*/
+            if(!empty($_POST))
+            {
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $series = new Series();
+                    $series->setIdApi($id);
+                    $series->setUser($this->getUser());
+                    $entityManager->persist($series);
+                    $entityManager->flush();
+                    return $this->redirectToRoute('app_index_show', ['id' => $id]);
+            }
         return $this->render('page/show.html.twig',
             [
                 'id' => $id
             ]);
     }
-
     /**
      * @Route("/contact")
      */
@@ -83,7 +85,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/contact.html.twig');
     }
-
     /**
      * @Route("/apropos")
      */
@@ -91,7 +92,6 @@ class IndexController extends AbstractController
     {
         return $this->render('page/apropos.html.twig');
     }
-
     /**
      * @Route("/waitingscreen")
      */
@@ -99,9 +99,4 @@ class IndexController extends AbstractController
     {
         return $this->render('page/waitingscreen.html.twig');
     }
-    
 }
-
-
-
-

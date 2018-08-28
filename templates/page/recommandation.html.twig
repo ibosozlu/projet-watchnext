@@ -1,119 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-
-
-    <h1>Requête</h1>
-
-    <!-- le tableau HTML ici -->
-    <table class="table_cat th_produits table table-striped">
-
-        <tr>
-            <td>
-                <form id="form" method="get">
-                    Titre:<br>
-                    <input type="text" name="titre"><br>
-                    Date:<br>
-                    <input type="text" name="date"><br>
-                    Durée:<br>
-                    <input type="text" name="duree">
-            <td>
-                <button type="submit" name="valider" id="valider" class="btn btn-primary">Voir détail</button>
-            </td>
-            </form>
-            </td>
-        </tr>
-
-
-    </table>
-
-    <div class="ajax">
-
-    </div>
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/waitingscreen.css') }}">
 
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(function () { // DOM ready
-            // interception de l'évènement submit du formulaire
-            // Déclaration des variables
-            var genre = [];
-            var i = 0;
-            // Ecouteur d'événement click
-            $('#valider').click(function (event) {
-                // Empêche la redirection
-                event.preventDefault();
-                // Vérification du formulaire
-                if ($('#form').find('input[name="firstname"]').val() != '' && $('#form').find('input[name="lastname"]').val() != '') {
-                    // Récupération des données du formulaire
-                    var values = {};
-                    $.each($('#form').serializeArray(), function (i, field) {
-                        values[field.name] = field.value;
-                    });
-                    console.log(values.titre);
-                    // Vérification du format de la série
-                    var api = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=" + values.titre;
-                    // Récupération des données de l'API
-                    var settings = {
-                        "async": true,
-                        "crossDomain": true,
-                        "url": api,
-                        "method": "GET",
-                        "headers": {},
-                        "data": "{}"
-                    }
-                    // Méthode AJAX
-                    $.ajax(settings).done(function (response) {
-                            console.log(response);
-                            // Remplir la variable content avant de l'inclure dans la div AJAX
-                            var content = '';
-                            if (response.results != '') {
-                                $(response.results).each(function () {
-                                    var resultatapi = this;
-                                    if (this.poster_path != null) {
-                                        content += '<br><img src="https://image.tmdb.org/t/p/w500' + this.poster_path + '">';
-                                    }
-                                    if (((this.name) != 'undefined') || ((this.title) != 'undefined')) {
-                                        content += '<div class="alert alert-success">' + ("Le titre est : " + this.name) + ' </div>';
-                                    }
-                                    if (this.first_air_date != '') {
-                                        content += '<div class="alert alert-success">' + ("La première diffusion : " + this.first_air_date) + ' </div>';
-                                    }
-                                    if (this.original_language != '') {
-                                        content += '<div class="alert alert-success">' + ("Langue : " + this.original_language) + ' </div>';
-                                    }
-                                    if (this.vote_average != 0) {
-                                        content += '<div class="alert alert-success">' + ("La note est : " + this.vote_average) + ' </div>';
-                                    }
-                                    if (this.overview != '') {
-                                        content += '<div class="alert alert-success">' + (this.overview) + ' </div>'
-                                    }
-                                    if (this.id != '') {
-                                        genre[i] = this.id;
-                                        content += '<a href="http://127.0.0.1:8000/similar/' + this.id + '">Similar Shows</a><br>'
-                                        i++;
-                                    }
-                                });
-                            } else {
-                                content = '<div class="alert alert-danger"> Il n\'y a pas de correpondance</div><br>';
-                            }
-                            console.log(genre);
-                            $('.ajax').html('').prepend(
-                                // Inclure content dans la div
-                                content
-                            );
-                            $('#form')[0].reset();
-                        }
-                    );
-                }
-                ;
-            })
-            ;
-        })
-        ;
-    </script>
 
+{% block body %}
+    <div class="test">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+var button = $(event.relatedTarget) // Button that triggered the modal
+var recipient = button.data('whatever') // Extract info from data-* attributes
+// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+var modal = $(this)
+modal.find('.modal-title').text('New message to ' + recipient)
+modal.find('.modal-body input').val(recipient)
+})
+</script>
 {% endblock %}

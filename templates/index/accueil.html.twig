@@ -2,15 +2,15 @@
 
 
 {% block stylesheets %}
-{{ parent() }}
-        <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
-    {% endblock %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
+{% endblock %}
 
 {% block body %}
-{{ parent() }}
+    {{ parent() }}
 
-    <section class="home-haut">
-        <div class="populaire">
+    <section class="container home-haut">
+        
             <h3>Séries populaires</h3>
             <br>
 
@@ -27,6 +27,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title1"> </h5>
+                            <p></p>
                         </div>
                     </div>
                     <div class="card">
@@ -36,6 +37,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title2"></h5>
+                            <p></p>
                         </div>
                     </div>
                     <div class="card">
@@ -45,6 +47,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title3"></h5>
+                            <p></p>
                         </div>
                     </div>
                     <div class="card">
@@ -54,6 +57,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title4"> </h5>
+                            <p></p>
                         </div>
                     </div>
                     <div class="card">
@@ -63,21 +67,22 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title title5"></h5>
+                            <p class="card-text"></p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-         </section>
-         
-         <section class="home-bas">  
-
-            <div class="liked">
-            <h3>Séries que vous avez aimées</h3>
-            <br>     
-                
             
-               <div class="populaire-row-haut">
+
+    </section>
+
+    <section class="home-bas container">
+
+        <div class="liked">
+            <h3>Séries que vous avez aimées</h3>
+            <br>
+
+
+            <div class="populaire-row-haut">
                 <div class="card-deck">
                     <div class="card">
                         <div class="divimage">
@@ -130,111 +135,82 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
     </section>
 
 {% endblock %}
 
 {% block javascripts %}
-{{ parent()}}
+    {{ parent()}}
     <script>
-    
-    $(function () { // DOM ready
-
-    // Vérification du format de la série
-
-    var api1 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=game-of-thrones";
-    
-
-    // Récupération des données de l'API
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": api1,
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }
-
-    // Méthode AJAX
-
-    $.ajax(settings).done(function (response) {
-            console.log(response);
-
-
-            // Remplir la variable content avant de l'inclure dans la div AJAX
-            var content1 = '';
-            var image1 = '';
-            var title1 = '';
-            var id1= '';
-            var card1='';
-
-          
-              
-                  
-                    if (response.results[0].poster_path != null) {
-                        image1 = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
-                    }
-                    else{
-                        image1 = ''
-                    }
-                    if (response.results[0].name != '') {
-                        title1 = '<div>'+ response.results[0].name + '</div>'
-                    }
-                    if (response.results[0].overview != '') {
-                        content1 = '<div>'+ response.results[0].overview + '</div>'
-                    }
-                    if (response.results[0].id != '') {
-                        id1 = response.results[0].id
-
-                    }
-                    
-            
-                    console.log(image1);
-                    console.log(content1);
-                    console.log(title1);
-                    console.log(id1);
-                    $('.image1').attr("src", image1);
-
-                    $('.lien1').attr("href", "http://127.0.0.1:8000/show/"+id1 );
-
-
-                    $('.card1').html('').prepend(
-                        content1
-                    );
-
-                    $('.title1').html('').prepend(
-                        title1
-                    );
-
-        });
-    
-    var api2 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=westworld";
-
-    var settings2 = {
-        "async": true,
-        "crossDomain": true,
-        "url": api2,
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }
-
-    $.ajax(settings2).done(function (response) {
-        console.log(response);
-
-
-        // Remplir la variable content avant de l'inclure dans la div AJAX
-        var content2 = '';
-        var image2 = '';
-        var title2 = '';
-        var card2='';
-        var id2= '';
-
-
-      
+        $(function () { // DOM ready
+            // Vérification du format de la série
+            var api1 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=game-of-thrones";
+            // Récupération des données de l'API
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": api1,
+                "method": "GET",
+                "headers": {},
+                "data": "{}"
+            }
+            // Méthode AJAX
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                // Remplir la variable content avant de l'inclure dans la div AJAX
+                var content1 = '';
+                var image1 = '';
+                var title1 = '';
+                var id1= '';
+                var card1='';
+                if (response.results[0].poster_path != null) {
+                    image1 = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
+                }
+                else{
+                    image1 = ''
+                }
+                if (response.results[0].name != '') {
+                    title1 = '<div>'+ response.results[0].name + '</div>'
+                }
+                if (response.results[0].overview != '') {
+                    content1 = '<div>'+ response.results[0].overview + '</div>'
+                }
+                if (response.results[0].id != '') {
+                    id1 = response.results[0].id
+                }
+                console.log(image1);
+                console.log(content1);
+                console.log(title1);
+                console.log(id1);
+                $('.image1').attr("src", image1);
+                $('.lien1').attr("href", "http://127.0.0.1:8000/show/"+id1 );
+                $('.card1').html('').prepend(
+                    content1
+                );
+                $('.title1').html('').prepend(
+                    title1
+                );
+            });
+            var api2 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=the-walking-dead";
+            var settings2 = {
+                "async": true,
+                "crossDomain": true,
+                "url": api2,
+                "method": "GET",
+                "headers": {},
+                "data": "{}"
+            }
+            $.ajax(settings2).done(function (response) {
+                console.log(response);
+                // Remplir la variable content avant de l'inclure dans la div AJAX
+                var content2 = '';
+                var image2 = '';
+                var title2 = '';
+                var card2='';
+                var id2= '';
                 if (response.results[0].poster_path != null) {
                     image2 = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
                 }
@@ -249,54 +225,38 @@
                 }
                 if (response.results[0].id != '') {
                     id2 = response.results[0].id
-
                 }
- 
-        
-                    console.log(image2);
-                    console.log(content2);
-                    console.log(title2);
-                    console.log(id2);
-                    
+                console.log(image2);
+                console.log(content2);
+                console.log(title2);
+                console.log(id2);
                 $('.image2').attr("src", image2);
-
                 $('.lien2').attr("href", "http://127.0.0.1:8000/show/"+id2 );
-
-
                 $('.card2').html('').prepend(
                     content2
                 );
-
                 $('.title2').html('').prepend(
                     title2
                 );
-
             });
-
-            var api3 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=vikings";
-
-    var settings3 = {
-        "async": true,
-        "crossDomain": true,
-        "url": api3,
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }
-
-    $.ajax(settings3).done(function (response) {
-        console.log(response);
-
-        // Remplir la variable content avant de l'inclure dans la div AJAX
-        var content = '';
-        var image = '';
-        var title = '';
-        var i= 0;
-        var b=1;
-        var id= '';
-
-        
-
+            var api3 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=westworld";
+            var settings3 = {
+                "async": true,
+                "crossDomain": true,
+                "url": api3,
+                "method": "GET",
+                "headers": {},
+                "data": "{}"
+            }
+            $.ajax(settings3).done(function (response) {
+                console.log(response);
+                // Remplir la variable content avant de l'inclure dans la div AJAX
+                var content = '';
+                var image = '';
+                var title = '';
+                var i= 0;
+                var b=1;
+                var id= '';
                 if (response.results[0].poster_path != null) {
                     image = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
                 }
@@ -311,50 +271,34 @@
                 }
                 if (response.results[0].id != '') {
                     id = response.results[0].id
-
                 }
-
-        
-   
                 $('.image3').attr("src", image);
-
                 $('.lien3').attr("href", "http://127.0.0.1:8000/show/"+id );
-
-
                 $('.card3').html('').prepend(
                     content
                 );
-
                 $('.title3').html('').prepend(
                     title
                 );
-
-            
-    });
-
-    var api4 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=breaking-bad";
-    var settings4 = {
-        "async": true,
-        "crossDomain": true,
-        "url": api4,
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }
-
-    $.ajax(settings4).done(function (response) {
-        console.log(response);
-
-        // Remplir la variable content avant de l'inclure dans la div AJAX
-        var content = '';
-        var image = '';
-        var title = '';
-        var i= 0;
-        var b=1;
-        var id= '';
-
-       
-
+            });
+            var api4 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=breaking-bad";
+            var settings4 = {
+                "async": true,
+                "crossDomain": true,
+                "url": api4,
+                "method": "GET",
+                "headers": {},
+                "data": "{}"
+            }
+            $.ajax(settings4).done(function (response) {
+                console.log(response);
+                // Remplir la variable content avant de l'inclure dans la div AJAX
+                var content = '';
+                var image = '';
+                var title = '';
+                var i= 0;
+                var b=1;
+                var id= '';
                 if (response.results[0].poster_path != null) {
                     image = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
                 }
@@ -369,87 +313,60 @@
                 }
                 if (response.results[0].id != '') {
                     id = response.results[0].id
-
                 }
-
-        
-
                 $('.image4').attr("src", image);
-
                 $('.lien4').attr("href", "http://127.0.0.1:8000/show/"+id );
-
-
                 $('.card4').html('').prepend(
                     content
                 );
-
                 $('.title4').html('').prepend(
                     title
                 );
-
             });
-
-    var api5 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=stranger-things";
-    var settings5 = {
-        "async": true,
-        "crossDomain": true,
-        "url": api5,
-        "method": "GET",
-        "headers": {},
-        "data": "{}"
-    }
-
-    $.ajax(settings5).done(function (response) {
-        console.log(response);
-
-
-        // Remplir la variable content avant de l'inclure dans la div AJAX
-        var content = '';
-        var image = '';
-        var title = '';
-        var i= 0;
-        var b=1;
-        var id= '';
-
-       
-
-
-                if (response.results[0].poster_path != null) {
-                    image = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
+            var api5 = "https://api.themoviedb.org/3/search/tv?api_key=6f077ac27b8512d9188198b9d2e07cad&query=vikings";
+            var settings5 = {
+                "async": true,
+                "crossDomain": true,
+                "url": api5,
+                "method": "GET",
+                "headers": {},
+                "data": "{}"
+            }
+            $.ajax(settings5).done(function (response) {
+                    console.log(response);
+                    // Remplir la variable content avant de l'inclure dans la div AJAX
+                    var content = '';
+                    var image = '';
+                    var title = '';
+                    var i= 0;
+                    var b=1;
+                    var id= '';
+                    if (response.results[0].poster_path != null) {
+                        image = 'https://image.tmdb.org/t/p/w300' + response.results[0].poster_path;
+                    }
+                    else{
+                        image = ''
+                    }
+                    if (response.results[0].name != '') {
+                        title = '<div>'+ response.results[0].name + '</div>'
+                    }
+                    if (response.results[0].overview != '') {
+                        content = '<div>'+ response.results[0].overview + '</div>'
+                    }
+                    if (response.results[0].id != '') {
+                        id = response.results[0].id
+                    }
+                    $('.image5').attr("src", image);
+                    $('.lien5').attr("href", "http://127.0.0.1:8000/show/"+id );
+                    $('.card5').html('').prepend(
+                        content
+                    );
+                    $('.title5').html('').prepend(
+                        title
+                    );
                 }
-                else{
-                    image = ''
-                }
-                if (response.results[0].name != '') {
-                    title = '<div>'+ response.results[0].name + '</div>'
-                }
-                if (response.results[0].overview != '') {
-                    content = '<div>'+ response.results[0].overview + '</div>'
-                }
-                if (response.results[0].id != '') {
-                    id = response.results[0].id
-
-                }
-           
-        
-            
-                $('.image5').attr("src", image);
-
-                $('.lien5').attr("href", "http://127.0.0.1:8000/show/"+id );
-
-
-                $('.card5').html('').prepend(
-                    content
-                );
-
-                $('.title5').html('').prepend(
-                    title
-                );
-
-    }
-);
-
-})
-</script>
+            );
+        })
+    </script>
 {% endblock %}
 
