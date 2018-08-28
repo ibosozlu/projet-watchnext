@@ -18,7 +18,10 @@ nav {
     background-color:  #081c24 !important;
     /* height: 80px; */
 }
-
+li.nav-item{
+    display: flex;
+    align-items: center;
+}
 .navbar-brand, .navbar-brand:hover, .navbar-toggler {
     color: #fecc00;
 }
@@ -91,7 +94,7 @@ footer {
 }
 
 
-.button-color:hover {
+.button-color:hover{
     background: rgba(0,0,0,0);
     color: #3a7999;
     box-shadow: inset 0 0 0 3px #fecc00;

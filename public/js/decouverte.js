@@ -25,6 +25,7 @@ $(function () { // DOM ready
             var i= 0;
             var b = 1;
             var id= [];
+            var name=[];
 
             if (response.results != '') {
                 $(response.results).each(function () {
@@ -35,7 +36,8 @@ $(function () { // DOM ready
                         image[i] = '';
                     }
                     if (this.name != '') {
-                        title[i] = '<div>'+ this.name + '</div>'
+                        title[i] = '<div>'+ this.name + '</div>';
+                        name[i] = this.name
                     }
                     if (this.vote_average != '') {
                         content[i] = '<div> Note : '+ this.vote_average + '/10</div>'
@@ -56,7 +58,7 @@ $(function () { // DOM ready
                 }else{
                     $('.image' + b).attr("src", image[i]);
 
-                    $('.lien' + b).attr("href", "http://127.0.0.1:8000/show/"+id[i] );
+                    $('.lien' + b).attr("href", "http://127.0.0.1:8000/show/"+id[i]);
 
                     $('.card' + b).html('').prepend(
                         content[i]

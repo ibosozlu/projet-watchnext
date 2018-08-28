@@ -2,57 +2,136 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/waitingscreen.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/recommandation.css') }}">
+
 
 {% endblock %}
-
 
 {% block body %}
-    <div class="test">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+    <!-- Premier container -->
+    <section id="pagecontainer">
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+        <!-- Résultat de la recherche -->
+        <section id="filmgrille">
+            <div class="container">
+                <div class="white-divider"></div>
+                <div class="heading">
+                    <h2>Séries</h2>
+                </div>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien1" href="">
+                            <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title1"> </h5>
+                            <p class="card-text card1">Pas d'information sur cette série.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien2" href="">
+                            <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title2"></h5>
+                            <p class="card-text card2">Pas d'information sur cette série.</p>
+                        </div>
                     </div>
-                </form>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien3" href="">
+                            <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title3"></h5>
+                            <p class="card-text card3" >Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien4" href="">
+                            <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title4"> </h5>
+                            <p class="card-text card4">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien5" href="">
+                            <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title5"></h5>
+                            <p class="card-text card5">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien6" href="">
+                            <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title6"></h5>
+                            <p class="card-text card6">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card-deck card-deck-bottom">
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien7" href="">
+                            <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title7"></h5>
+                            <p class="card-text card7">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien8" href="">
+                            <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title8"></h5>
+                            <p class="card-text card8">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="divimage">
+                            <a class="thumbnail lien9" href="">
+                            <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title title9"></h5>
+                            <p class="card-text card9">Pas d'information sur cette série.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
+        </section>
+
+    </section>
+
+
 {% endblock %}
 
-{% block javascript %}
-{{ parent() }}
-<script>
-$('#exampleModal').on('show.bs.modal', function (event) {
-var button = $(event.relatedTarget) // Button that triggered the modal
-var recipient = button.data('whatever') // Extract info from data-* attributes
-// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-var modal = $(this)
-modal.find('.modal-title').text('New message to ' + recipient)
-modal.find('.modal-body input').val(recipient)
-})
-</script>
+{% block javascripts %}
+        {{ parent() }}
+    <script>
+        var name = '{{ name }}';
+    </script>
+
+    <script src="{{asset('js/recommandation.js')}}"></script>
+
+
+
 {% endblock %}

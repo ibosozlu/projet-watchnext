@@ -11,13 +11,14 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        $test[] = $this->getDoctrine()->getRepository('App:Series')->findBy([], ['id_api' => 'DESC']);
+        $test = $this->getDoctrine()->getRepository('App:Series')->findBy(['user' => $this->getUser()], ['id' => 'DESC'],5);
 
-        dump($test[0][0]);
+        dump($test);
 
-
-
-        return $this->render('index/accueil.html.twig');
+        return $this->render('index/accueil.html.twig',
+        [
+            'test' => $test
+        ]);
     }
 
 
@@ -29,19 +30,13 @@ class IndexController extends AbstractController
     {
         return $this->render('page/page.html.twig');
     }
+
     /**
-     * @Route("/recommandation")
+     * @Route("/recommandation/{name}")
      */
-    public function recommandation()
+    public function recommandation($name)
     {
-        return $this->render('page/recommandation.html.twig');
-    }
-    /**
-     * @Route("/recommandation1/{name}")
-     */
-    public function recommandation1($name)
-    {
-        return $this->render('page/recommandation1.html.twig',
+        return $this->render('page/recommandation.html.twig',
             [
                 'name' => $name
             ]);
@@ -53,24 +48,13 @@ class IndexController extends AbstractController
     {
         return $this->render('page/decouverte.html.twig');
     }
-    /**
-     * @Route("/similar/{id}")
-     */
-    public function similar($id)
-    {
-        return $this->render('page/similar.html.twig',
-            [
-                'id' => $id
-            ]);
-    }
+
     /**
      * @param $id
      * @Route("/show/{id}")
      */
     public function show($id)
     {
-        dump($this->getUser()->containsSerie($id));
-
             if(!empty($_POST))
             {
                     $entityManager = $this->getDoctrine()->getManager();
@@ -86,7 +70,7 @@ class IndexController extends AbstractController
 
         return $this->render('page/show.html.twig',
             [
-                'id' => $id
+                'id' => $id,
             ]);
     }
 

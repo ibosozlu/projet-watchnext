@@ -18,7 +18,7 @@ class Series
 
 
     /**
-     * @ORM\Column(type="integer", unique=true)
+     * @ORM\Column(type="integer")
      */
     private $id_api;
 
@@ -28,9 +28,11 @@ class Series
      */
     private $user;
 
+
     /**
      * @return mixed
      */
+
     public function getUser()
     {
         return $this->user;

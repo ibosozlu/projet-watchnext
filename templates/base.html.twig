@@ -21,24 +21,34 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/recommandation">Test</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="http://127.0.0.1:8000/decouverte">Découvrir</a>
                     </li>
                     {% if app.user is null %}
                         <li class="nav-item right-menu">
-                            <button type="" class="button-color" data-toggle="modal" data-target="#exampleModal">Connexion</button>
+                            <button type="" class="button-color btn " data-toggle="modal" data-target="#exampleModal">
+                                Connexion
+                            </button>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link button-color btn "
+                               href="http://127.0.0.1:8000/inscription">Inscription</a>
                         </li>
                     {% else %}
-                    <li class="nav-item right-menu userconnected">
-                        {{ app.user }}
+                        <li class="nav-item right-menu userconnected">
+                            {{ app.user }}
+                        </li>
+                        <li class="nav-item ">
+                            <form action="{{ path ('app_security_logout') }}">
+                                <button type="submit" class="button-color btn ">
+                                    Deconnexion
+                                </button>
+                            </form>
                         </li>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/inscription">Inscription</a>
-                    </li>
+
+
                 </ul>
             </div>
         </div>
@@ -55,10 +65,11 @@
 
 <!-- Modal connexion -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <form method="post" id="formulaire-co" action="{{ path('app_security_login') }}">
         <div class="form-group">
-           <div class="namecolor"><label>Email</label></div>
+            <div class="namecolor"><label>Email</label></div>
             <input type="text" name="_username" class="form-control"
                    value=" ">
 
@@ -70,10 +81,8 @@
         </div>
         <br>
         <div class="form-btn-group text-right">
-            <button type="submit" class="button-color" data-dismiss="modal">Retour</button>
-            <button type="submit" class="button-color">
-                Se connecter
-            </button>
+            <button type="submit" class="btn button-color" data-dismiss="modal">Retour</button>
+            <button type="submit" class="btn button-color">Se connecter</button>
         </div>
 
     </form>
@@ -107,14 +116,14 @@
                     $.each($('#form').serializeArray(), function (i, field) {
                         values[field.name] = field.value;
                     });
-                    document.location.href = 'http://127.0.0.1:8000/recommandation1/'+ values.titre;
+                    document.location.href = 'http://127.0.0.1:8000/recommandation/' + values.titre;
                 }
             })
         })
     </script>
 
 
-    <script src="{{asset('js/connexion.js')}}"></script>
+    <script src="{{ asset('js/connexion.js') }}"></script>
 {% endblock %}
 <footer class="d-flex">
     <ul class="d-flex">
@@ -130,10 +139,6 @@
     </ul>
 </footer>
 </body>
-
-
-
-
 
 
 </html>

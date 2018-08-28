@@ -1,0 +1,33 @@
+.form-register {
+    width: 30%;
+    margin: 9% 35%;
+    border: 1px solid darkgrey;
+    border-radius: 0.8%;
+    padding: 3em;
+    box-shadow: 2px 2px 15px #081c24;
+
+}
+
+.register {
+    margin: 2.5em 0;
+    color: #081c24;
+}
+
+#validate {
+    margin-top: 2em;
+    margin-right: 12em;
+    border-color: transparent;
+}
+
+.button-color{
+    background-color: #081c24 !important;
+    color: #fecc00 !important;
+    margin-left: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    color: #081c24;
+    text-align: center;
+}
