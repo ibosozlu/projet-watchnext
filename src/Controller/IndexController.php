@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use App\Entity\Contact;
 use App\Entity\Series;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,41 +74,31 @@ class IndexController extends AbstractController
                 'id' => $id,
             ]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @Route("/contact")
      */
     public function contact()
     {
+        dump('Bonjour');
+        if(!empty($_GET))
+        {
+            dump('Ici');
+            $entityManager = $this->getDoctrine()->getManager();
+            $contact = new Contact();
+            $contact->setName($_GET['name']);
+            $contact->setEmail($_GET['email']);
+            $contact->setSubject($_GET['subject']);
+            $contact->setMessage($_GET['message']);
+
+
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_index_contact');
+        }
+
+
+
         return $this->render('page/contact.html.twig');
     }
     /**
