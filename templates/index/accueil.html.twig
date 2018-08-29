@@ -364,13 +364,13 @@
                 }
             );
 
-
             //2ème tableau
-            // Vérification du format de la série
+            // Vérification de l'existence de test[0].getIdApi
+
             {% if test[0].getIdApi is defined %}
             var id = {{ test[0].getIdApi }}
             {% endif %}
-                console.log(id);
+
             if (id != '') {
                 var api10 = "https://api.themoviedb.org/3/tv/" + id + "?api_key=6f077ac27b8512d9188198b9d2e07cad&language=fr-FR";
                 // Récupération des données de l'API
@@ -418,7 +418,9 @@
             {% if test[1].getIdApi is defined %}
             var id1 = {{ test[1].getIdApi }}
             {% endif %}
-            console.log(id1);
+
+
+
             if (id1 != '') {
                 console.log('ici');
                 var api11 = "https://api.themoviedb.org/3/tv/" + id1 + "?api_key=6f077ac27b8512d9188198b9d2e07cad&language=fr-FR";
@@ -556,7 +558,7 @@
                 }
             }// Vérification du format de la série
             {% if test[4].getIdApi is defined %}
-            var id4 = {{ test[4].getIdApi }}
+            var id4 ={{ test[4].getIdApi }}
             {% endif %}
             if (id4 != '') {
                 var api14 = "https://api.themoviedb.org/3/tv/" + id4 + "?api_key=6f077ac27b8512d9188198b9d2e07cad&language=fr-FR";
@@ -571,7 +573,7 @@
                 }
                 // Méthode AJAX
                 $.ajax(settings).done(function (response) {
-                    console.log(response);
+
                     // Remplir la variable content avant de l'inclure dans la div AJAX
                     var content14 = '';
                     var image14 = '';
@@ -598,10 +600,7 @@
                         title14
                     );
                 });
-
             }
         })
-
-
     </script>
 {% endblock %}

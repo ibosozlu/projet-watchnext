@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Controller;
+
 use App\Entity\Contact;
 use App\Entity\Series;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 class IndexController extends AbstractController
 {
     /**
@@ -12,16 +15,15 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        $test = $this->getDoctrine()->getRepository('App:Series')->findBy(['user' => $this->getUser()], ['id' => 'DESC'],5);
+        $test = $this->getDoctrine()->getRepository('App:Series')->findBy(['user' => $this->getUser()], ['id' => 'DESC'], 5);
 
         dump($test);
 
         return $this->render('index/accueil.html.twig',
-        [
-            'test' => $test
-        ]);
+            [
+                'test' => $test
+            ]);
     }
-
 
 
     /**
@@ -42,6 +44,7 @@ class IndexController extends AbstractController
                 'name' => $name
             ]);
     }
+
     /**
      * @Route("/decouverte")
      */
@@ -56,17 +59,16 @@ class IndexController extends AbstractController
      */
     public function show($id)
     {
-            if(!empty($_POST))
-            {
-                    $entityManager = $this->getDoctrine()->getManager();
-                    $series = new Series();
-                    $series->setIdApi($id);
-                    $series->setUser($this->getUser());
+        if (!empty($_POST)) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $series = new Series();
+            $series->setIdApi($id);
+            $series->setUser($this->getUser());
 
-                    $entityManager->persist($series);
-                    $entityManager->flush();
-                    return $this->redirectToRoute('app_index_show', ['id' => $id]);
-            }
+            $entityManager->persist($series);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_index_show', ['id' => $id]);
+        }
 
 
         return $this->render('page/show.html.twig',
@@ -74,15 +76,13 @@ class IndexController extends AbstractController
                 'id' => $id,
             ]);
     }
+
     /**
      * @Route("/contact")
      */
     public function contact()
     {
-        dump('Bonjour');
-        if(!empty($_GET))
-        {
-            dump('Ici');
+        if (!empty($_GET)) {
             $entityManager = $this->getDoctrine()->getManager();
             $contact = new Contact();
             $contact->setName($_GET['name']);
@@ -98,9 +98,9 @@ class IndexController extends AbstractController
         }
 
 
-
         return $this->render('page/contact.html.twig');
     }
+
     /**
      * @Route("/apropos")
      */
@@ -108,6 +108,7 @@ class IndexController extends AbstractController
     {
         return $this->render('page/apropos.html.twig');
     }
+
     /**
      * @Route("/waitingscreen")
      */

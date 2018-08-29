@@ -13,11 +13,11 @@ $(function () { // DOM ready
             var values = {};
             $.each($('#form').serializeArray(), function (i, field) {
                 values[field.name] = field.value;
-
             });
-
-            document.location.href = 'http://127.0.0.1:8000/recommandation1/'+ values.titre;
+            document.location.href = 'http://127.0.0.1:8000/recommandation1/' + values.titre;
         }
-
+    })
+    $('#retour').click(function (event) {
+        $('#exampleModal').classList.add("hidden")
     })
 })

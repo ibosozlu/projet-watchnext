@@ -1,6 +1,6 @@
 $(function () { // DOM ready
     // Vérification du format de la série
-    var tvdetail = "https://api.themoviedb.org/3/tv/" + id +"?api_key=6f077ac27b8512d9188198b9d2e07cad&language=fr-FR";
+    var tvdetail = "https://api.themoviedb.org/3/tv/" + id + "?api_key=6f077ac27b8512d9188198b9d2e07cad&language=fr-FR";
     // Récupération des données de l'API
     var settings = {
         "async": true,
@@ -11,7 +11,7 @@ $(function () { // DOM ready
         "data": "{}"
     };
     // Requête permettant de récuperer le casting
-    var tvcast = "https://api.themoviedb.org/3/tv/" +  id  +"/credits?api_key=6f077ac27b8512d9188198b9d2e07cad&language=en-US";
+    var tvcast = "https://api.themoviedb.org/3/tv/" + id + "/credits?api_key=6f077ac27b8512d9188198b9d2e07cad&language=en-US";
     // Récupération des données de l'API
     var settingscast = {
         "async": true,
@@ -21,7 +21,7 @@ $(function () { // DOM ready
         "headers": {},
         "data": "{}"
     };
-    var similar = "https://api.themoviedb.org/3/tv/" + id +"/similar?api_key=6f077ac27b8512d9188198b9d2e07cad"
+    var similar = "https://api.themoviedb.org/3/tv/" + id + "/similar?api_key=6f077ac27b8512d9188198b9d2e07cad"
     // Récupération des données de l'API
     var settingssimilar = {
         "async": true,
@@ -72,10 +72,14 @@ $(function () { // DOM ready
                     titre = '<h2>' + response.name + ' (' + (response.first_air_date.substr(0, 4)) + ')</h2>';
                 }
                 if (response.created_by != '') {
-                    showRunner = '<br><p><b>' + ("Créateur : " + '</b>' + response.created_by[0].name + '/ ');
+                    showRunner += '<p><b>Créateur : </b>';
+                    jQuery.each(response.created_by, function (index) {
+                        showRunner += '<br> ' + response.created_by[index].name
+                    });
+
                 }
                 if (response.networks != '') {
-                    showRunner += '<b>' + ("Network : " + '</b>' + response.networks[0].name + '</p>');
+                    showRunner += '<b> <br><br>' + ("Network : " + '</b>' + response.networks[0].name + '</p>');
                 }
                 if (response.number_of_seasons != 0) {
                     showRunner += '<p><b>' + response.number_of_seasons + " Saisons" + ' </b> / ';
@@ -87,7 +91,10 @@ $(function () { // DOM ready
                     genre += '<p><b>' + "Format: " + '</b><br>' + (response.episode_run_time[0]) + " Minutes" + ' </p>'
                 }
                 if (response.genres[0] != 0) {
-                    genre += '<p><b>' + "Genres: " + '</b><br>' + (response.genres[0].name) + ' </p>'
+                    genre += '<p><b>Genres : </b>';
+                    jQuery.each(response.genres, function (index) {
+                        genre += '<br> ' + response.genres[index].name
+                    });
                 }
                 /*  if (response.vote_average != 0) {
                       note += '<p><b>' + "Note: " + '</b><br>' + (response.vote_average) + "/10 " + ' </p>'
@@ -130,13 +137,6 @@ $(function () { // DOM ready
 
                 })
     */
-
-
-
-
-
-
-
 
 
     // Méthode AJAX pour la requête du casting

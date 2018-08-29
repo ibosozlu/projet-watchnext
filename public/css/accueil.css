@@ -5,8 +5,6 @@ h3 {
     font-size: 43px;
 }
 
-
-
 .home-haut {
     margin-top: 10em;
 }
@@ -22,14 +20,6 @@ h3 {
     box-shadow: 2px 2px 15px darkgray;
     padding: 3em;
 }
-
-/* .liked{
-    border: 1px solid darkgrey;
-    border-radius: 0.8%;
-    padding: 3em;
-    margin: 2em 25em;
-    box-shadow: 2px 2px 15px darkgray;
-} */
 
 .enregistre {
     margin-bottom: 5em;

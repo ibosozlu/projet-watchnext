@@ -15,10 +15,11 @@
 <body>
 <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway" rel="stylesheet">
 
+
 <section class="navigation">
     <nav class="navbar navbar-expand">
         <div class="container">
-            <a class="navbar-brand" href="http://127.0.0.1:8000/accueil">Watch-Next</a>
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">Watch-Next</a>
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
@@ -28,7 +29,8 @@
                     </li>
                     {% if app.user is null %}
                         <li class="nav-item right-menu">
-                            <button type="" class="button-color btn " data-toggle="modal" data-target="#exampleModal">
+                            <button type="" class="button-color btn" id="modal" data-toggle="modal"
+                                    data-target="#exampleModal">
                                 Connexion
                             </button>
                         </li>
@@ -82,7 +84,7 @@
         </div>
         <br>
         <div class="form-btn-group text-right">
-            <button type="submit" class="btn button-color" data-dismiss="modal">Retour</button>
+            <button type="submit" class="btn button-color" id="retour">Retour</button>
             <button type="submit" class="btn button-color">Se connecter</button>
         </div>
 
@@ -123,23 +125,20 @@
         })
     </script>
 
-
     <script src="{{ asset('js/connexion.js') }}"></script>
 {% endblock %}
-<footer class="d-flex">
-    <ul class="d-flex">
-        <li class="nav-item">
-            <p class="copyright"> ©2018 Watch Next. Tous droits réservés </p>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link apropos" href="http://127.0.0.1:8000/apropos">A propos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link contact" href="http://127.0.0.1:8000/contact">Contact</a>
-        </li>
-    </ul>
-</footer>
+
 </body>
+
+<footer class="d-flex">
+    <div class="container">
+        <nav class="nav nav-pills nav-fill footer">
+            <p class="nav-item copyright">©2018 Watch Next. Tous droits réservés</p>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/apropos">A propos</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/contact">Contact</a>
+        </nav>
+    </div>
+</footer>
 
 
 </html>

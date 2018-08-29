@@ -9,7 +9,6 @@
         <script src="{{ asset('js/progressbar.min.js') }}"></script>
 
     </head>
-
     <body>
     <main style="padding-top: 128px;"></main>
     <div class="container">
@@ -28,30 +27,26 @@
                 </div>
                 {% if app.user is null %}
                     <p> Se connecter pour ajouter cette page aux favoris</p>
-                   {% elseif app.user.containsSerie(id) == true %}
-                       <form method="POST">
-                           <input type="hidden" name="id" value="{{ id }}">
-                           <button type="" class="btn button-color1" name="Ajouter" disabled><b>Déjà ajoutée</b></button>
-                       </form>
-                        {% else %}
-                            <form method="POST">
-                                 <input type="hidden" name="id" value="{{ id }}">
-                                 <button type="submit" class="btn
+                {% elseif app.user.containsSerie(id) == true %}
+                    <form method="POST">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <button type="" class="btn button-color1" name="Ajouter" disabled><b>Déjà ajoutée</b></button>
+                    </form>
+                {% else %}
+                    <form method="POST">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <button type="submit" class="btn
                                  button-color" name="Ajouter"><b>Ajouter cette série à ma liste</b></button>
-                            </form>
+                    </form>
 
                 {% endif %}
-
                 <div class="description"></div>
-
-
             </div>
         </div>
 
         <div class="container" style="margin-top: 30px;"> <!-- Div contenant le titre casting-->
             <h3><b>Casting</b></h3>
         </div>
-
         <div class="container casting">
             <div class="row">
 
@@ -79,11 +74,9 @@
                     <div class="photo5"></div>
                     <div id="acteur5"></div>
                 </div>
-
             </div> <!-- fin de la row comprenant les acteurs -->
 
         </div> <!-- fin de la row casting -->
-
 
         <div class="container" style="margin-top: 30px;">
             <div class="suggestions row">
@@ -105,10 +98,7 @@
                     <div class="recommandationPoster3"></div>
                     <div class="recommandationTexte3"></div>
                 </div>
-
             </div>
-
-
         </div> <!-- fin de la row suggestions -->
     </div>
     </main>
@@ -121,7 +111,7 @@
         var id = '{{ id }}';
     </script>
 
-    <script src="{{asset('js/show.js')}}"></script>
+    <script src="{{ asset('js/show.js') }}"></script>
 
 
 {% endblock %}

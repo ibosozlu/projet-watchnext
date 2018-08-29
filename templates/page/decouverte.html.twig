@@ -8,144 +8,134 @@
 {% endblock %}
 
 {% block body %}
-
     <!-- Premier container -->
-
-
-
-
     <section id="pagecontainer">
         <!-- le tableau HTML ici -->
+        <form id="form2" method="get">
 
-
-
-
-                    <form id="form2" method="get">
-
-                        <button type="submit" name="valider" id="valider2" class="btn  button-color btn-primary:active">Par note</button>
-                        <button type="submit" name="valider" id="valider" class="btn button-color btn-primary:active">Nouveauté</button>
-                        <button type="submit" name="valider" id="valider3" class="btn button-color btn-primary:active">Par popularité</button>
-                    </form>
-
-
+            <button type="submit" name="valider" id="valider2" class="btn  button-color btn-primary:active">Par note
+            </button>
+            <button type="submit" name="valider" id="valider" class="btn button-color btn-primary:active">Nouveauté
+            </button>
+            <button type="submit" name="valider" id="valider3" class="btn button-color btn-primary:active">Par
+                popularité
+            </button>
+        </form>
 
         </table>
     </section>
-        <!-- Résultat de la recherche -->
-        <section id="filmgrille">
-            <div class="container">
-                <div class="white-divider"></div>
-                <div class="heading">
-                    <h2>Découverte</h2>
-                </div>
-                <div class="card-deck">
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien1" id="test" href="">
-                                <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title1"> </h5>
-                            <p class="card-text card1">Pas d'information sur cette série.</p>
-                        </div>
+    <!-- Résultat de la recherche -->
+    <section id="filmgrille">
+        <div class="container">
+            <div class="white-divider"></div>
+            <div class="heading">
+                <h2>Découverte</h2>
+            </div>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien1" id="test" href="">
+                            <img class="card-img-top image1" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                     </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien2" href="">
-                                <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title2"></h5>
-                            <p class="card-text card2">Pas d'information sur cette série.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien3" href="">
-                                <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title3"></h5>
-                            <p class="card-text card3" >Pas d'information sur cette série.</p>
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title title1"></h5>
+                        <p class="card-text card1">Pas d'information sur cette série.</p>
                     </div>
                 </div>
-                <br>
-                <div class="card-deck">
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien4" href="">
-                                <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title4"> </h5>
-                            <p class="card-text card4">Pas d'information sur cette série.</p>
-                        </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien2" href="">
+                            <img class="card-img-top image2" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                     </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien5" href="">
-                                <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title5"></h5>
-                            <p class="card-text card5">Pas d'information sur cette série.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien6" href="">
-                                <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title6"></h5>
-                            <p class="card-text card6">Pas d'information sur cette série.</p>
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title title2"></h5>
+                        <p class="card-text card2">Pas d'information sur cette série.</p>
                     </div>
                 </div>
-                <br>
-                <div class="card-deck card-deck-bottom">
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien7" href="">
-                                <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title7"></h5>
-                            <p class="card-text card7">Pas d'information sur cette série.</p>
-                        </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien3" href="">
+                            <img class="card-img-top image3" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
                     </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien8" href="">
-                                <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title8"></h5>
-                            <p class="card-text card8">Pas d'information sur cette série.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="divimage">
-                            <a class="thumbnail lien9" href="">
-                                <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title title9"></h5>
-                            <p class="card-text card9">Pas d'information sur cette série.</p>
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title title3"></h5>
+                        <p class="card-text card3">Pas d'information sur cette série.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
+            <br>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien4" href="">
+                            <img class="card-img-top image4" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title4"></h5>
+                        <p class="card-text card4">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien5" href="">
+                            <img class="card-img-top image5" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title5"></h5>
+                        <p class="card-text card5">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien6" href="">
+                            <img class="card-img-top image6" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title6"></h5>
+                        <p class="card-text card6">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card-deck card-deck-bottom">
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien7" href="">
+                            <img class="card-img-top image7" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title7"></h5>
+                        <p class="card-text card7">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien8" href="">
+                            <img class="card-img-top image8" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title8"></h5>
+                        <p class="card-text card8">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="divimage">
+                        <a class="thumbnail lien9" href="">
+                            <img class="card-img-top image9" src="{{ ('../../img/noimage.jpg') }}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title title9"></h5>
+                        <p class="card-text card9">Pas d'information sur cette série.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
 
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('js/decouverte.js')}}"></script>
+    <script src="{{ asset('js/decouverte.js') }}"></script>
 
 {% endblock %}
